@@ -1,0 +1,28 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+
+@*<div id="search">
+    @using (Html.BeginForm("Search", "Search", FormMethod.Post))
+    {
+        <form action="/Search" method="post" id="searchform">
+
+            <input name="SearchStr" type="text" id="SearchStr" class="searchInputFR">
+            <input type="submit" value="search" />
+
+        </form>
+    }
+</div>*@
+
+
+<div id="search">
+    <form action="/Search" method="post" id="searchform">
+
+        <input name="SearchStr" type="text" id="SearchStr" class="searchInputFR">
+        <input type="submit" class="magSubmit" value="search" />
+        @*<a id="" title="Search" class="magSubmit" href=''></a>*@
+
+    </form>
+</div>
+<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+</a>

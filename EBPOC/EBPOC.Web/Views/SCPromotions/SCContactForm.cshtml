@@ -1,0 +1,88 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using EBPOC.Web.Models
+
+@model List<SCProfileFieldVM>
+
+@*@model SCContactVM
+
+    @using (Html.BeginRouteForm(Sitecore.Mvc.Configuration.MvcSettings.SitecoreRouteName, FormMethod.Post))
+    {
+        @Html.Sitecore().FormHandler()
+
+        @Html.LabelFor(x => x.ContactProfileName)
+        @Html.EditorFor(x => x.ContactProfileName)
+        @Html.LabelFor(x => x.ContactProfileValue)
+        @Html.EditorFor(x => x.ContactProfileValue)
+
+        <input type="submit" />
+    }*@
+<div class="form_section">
+    <h3>Informations de la société</h3>
+    @foreach (var field in Model)
+    {
+        @switch (field.FieldType)
+        {
+            case "LABEL":
+                <div class="form_field">
+                    <label for="SocNom">Nom de la société</label>
+                    <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$SocNom" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_SocNom" class="input_small">
+                </div>
+                break;
+            case "DROPDOWNLIST":
+                <div class="form_field">
+                    <label for="SocNom">Nom de la société</label>
+                    <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$SocNom" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_SocNom" class="input_small">
+                </div>
+                break;
+            case "TEXTBOX":
+                <div class="form_field">
+                    <label for="SocNom">Nom de la société</label>
+                    <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$SocNom" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_SocNom" class="input_small">
+                </div>
+                break;
+            case "TEXTAREA":
+                <h3>Votre demande</h3>
+                <div class="form_field">
+                    <label for="Dem">Inscrivez ici votre demande/question</label>
+                    <textarea name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$Dem" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_Dem" class="input_long" rows="5"></textarea>
+                </div>
+                break;
+        }
+    }
+
+    @*<div class="form_field">
+            <label for="SocNbPers">Nombre de personnes occupées dans la société</label>
+            <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$SocNbPers" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_SocNbPers" class="input_small">
+        </div>
+        <div class="form_field">
+            <label for="SocAdresse">Adresse de la société</label>
+            <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$SocAdresse" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_SocAdresse" class="input_small">
+        </div>
+        <h3>Informations de la personne à contacter</h3>
+        <div class="form_field">
+            <label for="PersNom">Nom</label>
+            <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$PersNom" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_PersNom" class="input_small">
+        </div>
+        <div class="form_field">
+            <label for="Prén">Prénom</label>
+            <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$Prén" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_Prén" class="input_small">
+        </div>
+        <div class="form_field">
+            <label for="Fct">Fonction</label>
+            <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$Fct" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_Fct" class="input_small">
+        </div>
+        <div class="form_field">
+            <label for="Numtél">Numéro de téléphone</label>
+            <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$Numtél" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_Numtél" class="input_small">
+        </div>
+        <div class="form_field">
+            <label for="email">Adresse e-mail</label>
+            <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$email" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_email" class="input_small">
+        </div>
+        <h3>Votre demande</h3>
+        <div class="form_field">
+            <label for="Dem">Inscrivez ici votre demande/question</label>
+            <textarea name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$Dem" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_Dem" class="input_long" rows="5"></textarea>
+        </div>*@
+</div>
