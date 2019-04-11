@@ -1,0 +1,39 @@
+﻿<Project>
+  <PropertyGroup>
+    <Site Server="EBPOC9.local" UserName="sitecore\admin" IsRemoteSitecore="False" />
+  </PropertyGroup>
+  <File Include="Views\SCPromotions\SCEBPromotion.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0" />
+  <File Include="Views\Shared\SCArticleLayout.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{89A98043-3D8A-4D22-9688-F2CA37C964D3}</Item>
+  </File>
+  <File Include="Views\Shared\SCMainLayout.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{3C71E427-E87A-4E65-98DA-021E4737D539}</Item>
+  </File>
+  <File Include="Views\Shared\SCGrids\SCArticleGrid.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{722A4BDF-D050-4E18-A88E-BE447DD4D586}</Item>
+  </File>
+  <File Include="Views\Shared\SCBlocks\SCHeader.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{48A23078-D5F8-4142-85DE-67115EB2675C}</Item>
+  </File>
+  <File Include="Views\Shared\SCBlocks\SCFooter.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{339B9157-73D9-456C-829E-4262D25F1F6B}</Item>
+  </File>
+  <File Include="Views\Shared\SCBlocks\SCRightSideBar.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{85751A65-6836-4A21-8B9D-6CA31FAEFB8F}</Item>
+  </File>
+  <File Include="Views\Shared\SCGrids\SCMainGrid.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{26553DDB-3F31-4608-9CFE-613A23708372}</Item>
+  </File>
+  <File Include="Views\SCPromotions\SCDialBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{6946EB09-739A-47E9-A68C-50400EA9055F}</Item>
+  </File>
+  <File Include="Views\SCNavigations\SCLanguageSwitcher.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{A3C5A510-82DE-491F-9792-B599F5885B6F}</Item>
+  </File>
+  <File Include="Views\SCDocuments\SCMediaDownloadLink.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{40CF7FAF-7D7D-456A-AD77-B9ADEF64A735}</Item>
+  </File>
+  <File Include="Views\SCDocuments\SCDocumentList.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{719CDE7C-5024-45E0-B665-05841C33571A}</Item>
+  </File>
+</Project>

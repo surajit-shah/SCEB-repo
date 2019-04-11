@@ -1,0 +1,21 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using EBPOC.Web.Models
+
+@model List<DocumentDetails>
+
+<div class="row" id="footern">
+    <div class="col-md-10 col-sm-8">
+        @if (Model != null)
+        {
+            <ul class="footer_ul">
+                @foreach (var document in Model)
+                {
+                    <li class="footer_li">
+                        <a title="@document.Name" href="@document.Scource" target="_blank">@document.Name</a>
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+</div>

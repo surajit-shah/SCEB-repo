@@ -1,0 +1,35 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using EBPOC.Web.Helpers
+@model RenderingModel
+@{
+
+}
+<div id="nav_bar">
+    <ul id="nav">
+        <li>
+            <a href="@Sitecore.Links.LinkManager.GetItemUrl(EBPOC.Web.Helpers.SiteHelper.ProductItem())">
+                @SiteHelper.HomeItem().Fields["Meta Title"].Value
+            </a>
+        </li>
+        @foreach (var item in SiteHelper.ProductItem().Children.ToArray())
+        {
+            if (@item["Show in Menu"] == "1")
+            {
+                <li>
+                    <a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">
+                        @item.Fields["Title"].Value
+                    </a>
+                </li>
+            }
+        }
+    </ul>
+
+    @*@Html.Sitecore().ViewRendering("/sitecore/layout/Renderings/SCEBRenderings/SCSearch/SearchBox")*@
+    <div id="search">
+
+        @Html.Sitecore().Placeholder("top.search")
+        @*<input name="" type="text" id="" class="searchInputFR">
+        <a id="" title="Search" class="magSubmit" href=''></a>*@
+    </div>
+</div>

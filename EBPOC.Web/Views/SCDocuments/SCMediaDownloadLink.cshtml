@@ -1,0 +1,25 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+@{
+
+}
+@Html.Sitecore().Field("DownloadLink", new {
+  text = @Html.Sitecore().Field("DownloadPicture", new { @class = "img-responsive" })
+})
+
+@*<div class="box">
+    <div>
+        <div>
+            <div class="box-header">
+                @Html.Sitecore().Field("BoxTitle")
+                @Html.Sitecore().Field("ViewMoreLink", new { @class = "more-link pull-right" })
+            </div>
+            <div class="box-content">
+                <div>
+                    @Html.Sitecore().Field("ItemUrl", new { text = Html.Partial("~/Views/Home/_PeopleNewsBoxContent.cshtml") })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@

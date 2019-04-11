@@ -1,0 +1,28 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+@{
+
+}
+<html>
+<head>
+    <title></title>
+    <link href="~/Css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Css/index.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <style>
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    @*@Html.Sitecore().ViewRendering("/Views/SCEBHeader.cshtml")*@
+    @Html.Sitecore().Placeholder("MainPage.Grid")
+
+</body>
+</html>
