@@ -198,38 +198,192 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
 .topnav .icon {
   display: none;
 }
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child),#search {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+ @media (min-width: 480px) and (max-width: 993px) {
+       /* styles for mobile browsers smaller than 480px; (iPhone) */
+       .rightlogo{
+           height: 50px;
+       }
+       .leftlogo{
+           height: 50px;
+       }
+       .leftlogo img{
+           height: 50px;
+       }
+    #rightimage{
+    height: 25px;
+    width: 200px;
+       }
+    .col-md-3{
+    padding-right: 0;
+     padding-left: 0;
+}
+#ebi_flash_box a, #dail_box a {
+    padding: 35px 0 0 355px !important;
+}
+    }
+
+ @media (min-width: 200px) and (max-width: 479px) {
+       /* styles for mobile browsers smaller than 480px; (iPhone) */
+       .rightlogo{
+           height: 50px;
+       }
+       .leftlogo{
+           height: 50px;
+       }
+       .leftlogo img{
+           height: 50px;
+       }
+       #rightimage{
+    height: 20px;
+    width: 166px;
+       }
+    }
 /*header style ends*/
 
-/*main div styles*/
-#home_main{
-
+/*main content styles*/
+.col-md-3{
+    padding-right: 0;
 }
-#main, #home_main {
-    clear: both;
-    overflow: hidden;
-    min-height: 500px;
+#firstContent{
+background: white;
+display: block;
+/*overflow: auto;*/
+padding-right: 0 !important;
 }
-#home_top{
-    height: 300px;
-    background: #FFF url(../Images/bottom-gradient-small.gif) bottom repeat-x;
+#image{
+    background: url(../Images/visu-tools.jpg) no-repeat;
+    background-size: 100%;
+}
+.section {
+    margin: 10px;
+    padding: 0;
+    /* margin-bottom: 20px; */
+    font-size: 2.2em;
+    font-family: "Helvetica", "Arial", sans-serif;
+}
+.form {
+    margin: 0;
+    padding: 0;
     margin-bottom: 20px;
-    margin-top: 20px;
 }
-#home_bar{
-    overflow: hidden;
+.form_section {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #D8D8D8;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
 }
-#home_ctas {
-    float: left;
-    /*width: 710px;*/
-    /*background: url(../Images/bg-ctas-bottom.gif) bottom no-repeat;*/
-    background-size: 100%;
+ .form_section h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.7em;
+    color: #103184;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
-#home_ctas_inner {
-    overflow: hidden;
-    /*width: 710px;*/
-    /*background: url(../Images/bg-ctas-top.gif) top no-repeat;*/
-    background-size: 100%;
-    /*border-bottom: 2px solid #b3a3a5;*/
+.form_section label {
+    font-family: "Helvetica", "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: block;
+    font-size: 2.2em;
+    color: #103184;
+    margin-bottom: 5px;
+    font-weight: 100;
+}
+.form_section input.input_small {
+    margin: 0;
+    padding: 0;
+    width: 175px;
+}
+.form_section input {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 20px;
+    width: 350px;
+    border: 1px solid #E3E3E3;
+    border-top: 1px solid #717171;
+    color: #808080;
+    font-size: 1.2em;
+    padding-left: 3px;
+}
+.form_section .form_field {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.form_section select {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 180px;
+}
+select, input {
+    font-size: 1.3em;
+    font-family: "Helvetica", "Arial", sans-serif;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+.side_box {
+    margin: 0;
+    padding: 0;
+    background: #FFF url(../Images/bottom-gradient-small.gif) bottom repeat-x;
+    margin-bottom: 5px;
+}
+.side_box_inner {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    background: url(../Images/side-rounded-top.gif) top no-repeat;
+    min-height: 66px;
+    padding: 25px;
+}
+#subnav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none outside none;
+}
+#subnav li {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+    font-size: 1.7em;
+    line-height: 1.4em;
+}
+
+#subnav li a {
+    margin: 0;
+    padding: 0;
+    display: block;
+    padding-left: 12px;
+    background: url(../Images/bullet.gif) 0 5px no-repeat;
+    color: #666;
 }
 .s4-wpTopTable{
     border: none;
@@ -241,22 +395,22 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
 #home_ctas #cta_contacts {
     border-left: 0;
 }
-#home_ctas .cta {
+.sidebarwrapper .cta {
     /*width: 177.5px;*/
-    background-image: linear-gradient(white, #dddddd);
+    background: white;
     float: left;
     margin: 0;
-    padding: 5px 20px 20px;
-    border-bottom: 0;
+    /*padding: 5px 20px 20px;*/
+    border-bottom: 1px solid #b5b5b5;
     border-left: 1px solid #D8D8D8;
     border-right: 1px solid #F2F2F2;
 }
-.ctawrapper{
+.sidebarwrapper {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto;
     padding: 5px;
     grid-column-gap: 3px;
-}
+   }
 .cta {
     font-family: "Helvetica", "Arial", sans-serif;
     margin: 0 -25px 6px;
@@ -308,17 +462,13 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
 .cta p {
     margin: 0px;
     padding: 0px;
-    font-size: 1.5em;
+    font-size: 1.8em;
     line-height: 1.3em;
 }
-#home_bar #dail_box {
-    margin-left: 20px;
-    margin-top: 10px;
-    float: right;
-    width: 230px;
-    height: 160px;
-    background: url(../Images/bg-dail-box-big.gif);
-    margin-bottom: 5px;
+#ebi_flash_box {
+    margin-top: 5px !important;
+    background: url(../Images/bg-ebi-flash-box.gif) no-repeat;
+    background-size: 100%;
 }
 #ebi_flash_box, #dail_box {
     margin: 0px;
@@ -326,29 +476,43 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
     height: 88px;
     margin-bottom: 5px;
 }
-#home_bar #dail_box a {
-    padding: 110px 0 0 0;
-    width: 230px;
-    text-align: center;
-}
 #ebi_flash_box a, #dail_box a {
     margin: 0px;
     padding: 0px;
     display: block;
     height: 58px;
-    width: 118px;
-    padding: 30px 0 0 112px;
-    font-size: 2.5em;
+    padding: 35px 0 0 135px;
+    font-size: 2em;
     color: #FFF;
     line-height: 1em;
     font-family: "ITCFranklinGothicBookRegular", "Trebuchet MS", sans-serif;
     letter-spacing: -1px;
 }
-
-
-/*new footer style*/
+#ebi_flash_box a strong, #dail_box a strong {
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+    font-family: "ITCFranklinGothicDemiRegular", "Trebuchet MS", sans-serif;
+    letter-spacing: -1px;
+}
+#dail_box {
+    background: url(../Images/bg-dail-box.gif) no-repeat;
+    background-size: 100%;
+}
+#ebi_flash_box, #dail_box {
+    margin: 0px;
+    padding: 0px;
+    height: 88px;
+    margin-bottom: 5px;
+}
+ .form_section textarea.input_long {
+    margin: 0;
+    padding: 0;
+    width: 400px;
+}
+/*footer style begins*/
 #footern{
-margin-top: 15px;
+margin-top: 10px;
 height: 150px;
 background: url(../Images/footer.png);
 background-size: 100%;
@@ -397,95 +561,4 @@ border-radius: 3px;
     list-style: none outside none;
     font-size: 1.3em;
 }
-
-
-/*media queries begins*/
-
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
-  .topnav a:not(:first-child),#search {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive a.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
- @media (min-width: 480px) and (max-width: 993px) {
-       /* styles for mobile browsers smaller than 480px; (iPhone) */
-       .rightlogo{
-           height: 50px;
-       }
-       .leftlogo{
-           height: 50px;
-       }
-       .leftlogo img{
-           height: 50px;
-       }
-    #rightimage{
-    height: 25px;
-    width: 200px;
-       }
-
-.ctawrapper {
-    display: grid;
-    grid-template-columns: auto;
-    padding: 5px;
-    grid-row-gap: 10px;
-}
-.cta p {
-    margin: 0px;
-    padding: 0px;
-    font-size: 2.5em;
-    line-height: 1.3em;
-}
-#footern {
-    background:none !important;
-}
-    }
-
- @media (min-width: 200px) and (max-width: 479px) {
-       /* styles for mobile browsers smaller than 480px; (iPhone) */
-       .rightlogo{
-           height: 50px;
-       }
-       .leftlogo{
-           height: 50px;
-       }
-       .leftlogo img{
-           height: 50px;
-       }
-       #rightimage{
-    height: 20px;
-    width: 166px;
-       }
-       .ctawrapper {
-    display: grid;
-    grid-template-columns: auto;
-    padding: 5px;
-    grid-row-gap: 10px;
-}
-.cta p {
-    margin: 0px;
-    padding: 0px;
-    font-size: 2.5em;
-    line-height: 1.3em;
-}
-#footern {
-    background:none !important;
-}
-    }
+/*footer style ends*/

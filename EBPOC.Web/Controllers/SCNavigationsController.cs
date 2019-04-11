@@ -1,5 +1,7 @@
-﻿using Sitecore;
+﻿using EBPOC.Web.Models;
+using Sitecore;
 using Sitecore.Collections;
+using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Data.Managers;
 using Sitecore.Globalization;
@@ -14,6 +16,11 @@ namespace EBPOC.Web.Controllers
 {
     public class SCNavigationsController : Controller
     {
+        // GET: Default
+        public ActionResult Index()
+        {
+            return View();
+        }
         // GET: Navigation
         public ActionResult SCLanguageSwitcher()
         {
@@ -27,6 +34,22 @@ namespace EBPOC.Web.Controllers
             }
 
             return View(list);
+        }
+
+        public ActionResult SCCarousel()
+        {
+            List<CarouselSlide> slides = new List<CarouselSlide>();
+
+            MultilistField multilistField = Sitecore.Context.Item.Fields["PageCarouselSlides"];
+            if (multilistField != null)
+            {
+                Item[] carouselItems = multilistField.GetItems();
+                foreach (Item item in carouselItems)
+                {
+                    slides.Add(new CarouselSlide(item));
+                }
+            }
+            return PartialView(slides);
         }
 
         private static string GetItemUrl(Item item, Language language)
