@@ -3,13 +3,34 @@
 @using EBPOC.Web.Models
 
 @model IEnumerable<CarouselSlide>
-<div class="carousel-inner" role="listbox">
+@*<div class="carousel-inner" role="listbox">
+        @foreach (var item in Model)
+        {
+            <div>
+                <a href="@item.Url" title="@item["Title"]">
+                    @item.Image
+                </a>
+            </div>
+        }
+    </div>*@
+<div class="carousel-inner">
     @foreach (var item in Model)
     {
-        <div>
-            <a href="@item.Url" title="@item["Title"]">
-                @item.Image
-            </a>
-        </div>
+        if (item.Title == "")
+        {
+            <div class="item active">
+                <a href="@item.Url" title="@item["Title"]">
+                    @item.Image
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="item">
+                <a href="@item.Url" title="@item["Title"]">
+                    @item.Image
+                </a>
+            </div>
+        }
     }
 </div>

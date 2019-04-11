@@ -6,6 +6,7 @@ using Sitecore.Data.Items;
 using Sitecore.Data.Managers;
 using Sitecore.Globalization;
 using Sitecore.Links;
+using Sitecore.Mvc.Presentation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,10 @@ namespace EBPOC.Web.Controllers
         public ActionResult SCCarousel()
         {
             List<CarouselSlide> slides = new List<CarouselSlide>();
-
+            //var dataSourceId = RenderingContext.CurrentOrNull.Rendering.DataSource;
+            //var dataSource = Sitecore.Context.Database.GetItem(dataSourceId);
+            var renderingModel = new Sitecore.Mvc.Presentation.RenderingModel();
+            var myTitle = renderingModel.PageItem.Fields["PageCarouselSlides"];
             MultilistField multilistField = Sitecore.Context.Item.Fields["PageCarouselSlides"];
             if (multilistField != null)
             {

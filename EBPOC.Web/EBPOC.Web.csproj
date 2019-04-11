@@ -164,6 +164,9 @@
     <Content Include="Images\pdf.gif" />
     <Content Include="Images\rightlogo.PNG" />
     <Content Include="Images\rightlogo1.PNG" />
+    <Content Include="Images\sample1.png" />
+    <Content Include="Images\sample2.png" />
+    <Content Include="Images\sample3.jpg" />
     <Content Include="Images\search-input.gif" />
     <Content Include="Images\search-submit.gif" />
     <Content Include="Images\visu-tools.jpg" />

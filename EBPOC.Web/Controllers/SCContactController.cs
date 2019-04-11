@@ -45,7 +45,7 @@ namespace EBPOC.Web.Controllers
         {
             var xxx = new List<SCProfileFieldVM>();
             // populate the viewModel and return it
-            return fullAndPartialViewModel;
+            return xxx;
         }
 
     }

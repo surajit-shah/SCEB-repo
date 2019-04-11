@@ -16,14 +16,14 @@ namespace EBPOC.Web.Models
 
         public string Title
         {
-            get { return InnerItem["Title"]; }
+            get { return InnerItem["CarouselTitle"]; }
         }
 
         public HtmlString Image
         {
             get
             {
-                return new HtmlString(FieldRenderer.Render(InnerItem, "Image"));
+                return new HtmlString(FieldRenderer.Render(InnerItem, "CarouselImage"));
             }
         }
 
@@ -31,7 +31,7 @@ namespace EBPOC.Web.Models
         {
             get
             {
-                Item linkItem = Sitecore.Context.Database.GetItem(InnerItem["Link Item"]);
+                Item linkItem = Sitecore.Context.Database.GetItem(InnerItem["CarouselLinkItem"]);
                 if (linkItem != null)
                     return LinkManager.GetItemUrl(linkItem);
                 return "";
