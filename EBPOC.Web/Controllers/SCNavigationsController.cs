@@ -40,10 +40,6 @@ namespace EBPOC.Web.Controllers
         public ActionResult SCCarousel()
         {
             List<CarouselSlide> slides = new List<CarouselSlide>();
-            //var dataSourceId = RenderingContext.CurrentOrNull.Rendering.DataSource;
-            //var dataSource = Sitecore.Context.Database.GetItem(dataSourceId);
-            var renderingModel = new Sitecore.Mvc.Presentation.RenderingModel();
-            var myTitle = renderingModel.PageItem.Fields["PageCarouselSlides"];
             MultilistField multilistField = Sitecore.Context.Item.Fields["PageCarouselSlides"];
             if (multilistField != null)
             {

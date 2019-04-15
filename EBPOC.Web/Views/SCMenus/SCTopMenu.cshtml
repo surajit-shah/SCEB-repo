@@ -5,31 +5,6 @@
 @{
 
 }
-@*<div id="nav_bar">
-    <ul id="nav">
-        <li>
-            <a href="@Sitecore.Links.LinkManager.GetItemUrl(EBPOC.Web.Helpers.SiteHelper.ProductItem())">
-                @SiteHelper.HomeItem().Fields["Meta Title"].Value
-            </a>
-        </li>
-        @foreach (var item in SiteHelper.ProductItem().Children.ToArray())
-        {
-            if (@item["Show in Menu"] == "1")
-            {
-                <li>
-                    <a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">
-                        @item.Fields["Title"].Value
-                    </a>
-                </li>
-            }
-        }
-    </ul>
-    <div id="search">
-        @Html.Sitecore().Placeholder("top.search")
-    </div>
-</div>*@
-
-
 <div class="row">
     <div class="topnav" id="myTopnav">
         <a class="active" href="@Sitecore.Links.LinkManager.GetItemUrl(EBPOC.Web.Helpers.SiteHelper.ProductItem())">

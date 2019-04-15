@@ -2,11 +2,7 @@
 @using Sitecore.Mvc.Presentation
 @model RenderingModel
 @{
-                /**/
-
-                /**/
-
-                Layout = null;
+    Layout = null;
 }
 <!DOCTYPE html>
 <html>
@@ -19,9 +15,9 @@
     <script src="~/Scripts/jquery.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function () {
-        $("#ddlCategory").change(function () {
+        $("#ddlContactProfile").change(function () {
             var categoryId = $("#ddlContactProfile").val();
-               $("#dvCategoryResults").load('@(Url.Action("GetContactProfileFields","SCContact",null, Request.Url.Scheme))?categoryId=' + categoryId);
+            $("#dvContactFormSection").load('@(Url.Action("GetContactProfileFields","SCContact",null, Request.Url.Scheme))?categoryId=' + categoryId);
         });
     });
         function myFunction() {
@@ -33,12 +29,11 @@
             }
         }
     </script>
-    @Html.Sitecore().VisitorIdentification()
+    @*@Html.Sitecore().VisitorIdentification()*@
 </head>
 <body>
-    @*<h1>@Html.Sitecore().Field("title")</h1>
-        <div>*@
-    @Html.Sitecore().Placeholder("ArticlePage.Grid")
-    @*</div>*@
+    <div class="container">
+        @Html.Sitecore().Placeholder("ArticlePage.Grid")
+    </div>
 </body>
 </html>

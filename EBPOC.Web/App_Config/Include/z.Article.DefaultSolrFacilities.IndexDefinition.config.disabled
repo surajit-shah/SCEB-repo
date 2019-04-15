@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:role="http://www.sitecore.net/xmlconfig/role/" xmlns:search="http://www.sitecore.net/xmlconfig/search/">
+  <sitecore role:require="Standalone or ContentDelivery or ContentManagement" search:require="solr">
+    <contentSearch>
+      <configuration type="Sitecore.ContentSearch.ContentSearchConfiguration, Sitecore.ContentSearch">
+        <indexes hint="list:AddIndex">
+          <index id="custom_content_index" type="Sitecore.ContentSearch.SolrProvider.SolrSearchIndex, Sitecore.ContentSearch.SolrProvider">
+            <param desc="name">$(id)</param>
+            <param desc="core">$(id)</param>
+            <param desc="propertyStore" ref="contentSearch/indexConfigurations/databasePropertyStore" param1="$(id)" />
+            <configuration ref="contentSearch/indexConfigurations/defaultSolrIndexConfiguration">
+
+              <documentOptions ref="contentSearch/indexConfigurations/defaultSolrIndexConfiguration/documentOptions">
+                <include hint="list:AddIncludedTemplate">
+                  <ArticleTemplate>{C9E7C408-BDA1-44E1-B54B-35D87AB4CC3F}</ArticleTemplate>
+                  <!--<Page>{5272B85F-0F34-6HFF-652F-245193G3EG67}</Page>-->
+                </include>
+                <indexAllFields>true</indexAllFields>
+                <!--<fields hint="raw:AddComputedIndexField">
+                  <field fieldName="ComputedField1">Practice.Domain.Search.ComputedFields.ComputedField1, Practice.Domain</field>
+                  <field fieldName="ComputedField2">Practice.Domain.Search.ComputedFields.ComputedField2, Practice.Domain</field>
+                </fields>-->
+              </documentOptions>
+              <fieldMap ref="contentSearch/indexConfigurations/defaultSolrIndexConfiguration/fieldMap">
+                <fieldNames hint="raw:AddFieldByFieldName">
+                  <field fieldName="metatitle" returnType="text" storageType="YES" indexType="TOKENIZED" vectorType="NO" boost="1f" />
+                  <field fieldName="metadescription" returnType="text" storageType="YES" indexType="TOKENIZED" vectorType="NO" boost="1f" />
+                </fieldNames>
+              </fieldMap>
+            </configuration>
+            <strategies hint="list:AddStrategy">
+              <strategy ref="contentSearch/indexConfigurations/indexUpdateStrategies/onPublishEndAsync"/>
+            </strategies>
+            <commitPolicyExecutor type="Sitecore.ContentSearch.CommitPolicyExecutor, Sitecore.ContentSearch">
+              <policies hint="list:AddCommitPolicy">
+                <policy type="Sitecore.ContentSearch.TimeIntervalCommitPolicy, Sitecore.ContentSearch" />
+              </policies>
+            </commitPolicyExecutor>
+            <locations hint="list:AddCrawler">
+              <crawler type="Sitecore.ContentSearch.SitecoreItemCrawler, Sitecore.ContentSearch">
+                <Database>web</Database>
+                <Root>/sitecore/content/home</Root>
+              </crawler>
+            </locations>
+            <enableItemLanguageFallback>false</enableItemLanguageFallback>
+            <enableFieldLanguageFallback>false</enableFieldLanguageFallback>
+          </index>
+        </indexes>
+      </configuration>
+    </contentSearch>
+  </sitecore>
+</configuration>

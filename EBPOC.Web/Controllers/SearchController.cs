@@ -1,5 +1,9 @@
-﻿using Sitecore.ContentSearch;
+﻿using EBPOC.Web.Configuration.Search.Models;
+using EBPOC.Web.Models;
+using Sitecore.ContentSearch;
+using Sitecore.ContentSearch.Linq;
 using Sitecore.ContentSearch.SearchTypes;
+using Sitecore.Data.Items;
 using Sitecore.Mvc.Extensions;
 using Sitecore.Search;
 using System;
@@ -13,32 +17,60 @@ namespace EBPOC.Web.Controllers
     public class SearchController : Controller
     {
         // GET: Search
+        //[HttpPost]
+        //public ActionResult Search(string SearchStr)
+        //{
+
+        //    if (SearchStr == null) return View("Error");
+        //    //if (SearchStr != null)
+        //    //{
+        //        List<Item> ResultsList = new List<Item>();
+
+        //        string indexname = "sitecore_master_index";
+        //        if (Sitecore.Context.PageMode.IsNormal || Sitecore.Context.PageMode.IsDebugging) indexname = "sitecore_web_index";
+
+        //        using (var context = ContentSearchManager.GetIndex(indexname).CreateSearchContext())
+        //        {
+        //            // Start the search query building
+        //            var query = context.GetQueryable<SitecoreItem>().Where(item => item.Path.StartsWith("/sitecore/content/EmployeeBenefits")).Where(x => x.TemplateName == "EBArticleTemplate");
+
+        //            // we will split the spaces and require all words to be in the index.
+        //            foreach (string word in SearchStr.Split(' '))
+        //            {
+        //                query = query.Where(item => item.Title.Contains(word) || item.Content.Contains(word));
+        //            }
+
+
+        //            var results = query
+        //               .Filter(item => item.Language == Sitecore.Context.Language.Name).GetResults();
+
+        //            SearchResults searchResults = new SearchResults();
+        //            searchResults.Results = new List<SimpleItem>();
+        //            searchResults.SearchString = SearchStr;
+        //            foreach (SearchHit<SitecoreItem> result in results.Hits)
+        //            {
+        //                searchResults.Results.Add(new SimpleItem(result.Document.GetItem()));
+        //            }
+
+        //            return View("Search", searchResults);
+
+
+
+
+        //        }
+        [HttpGet]
+    public ActionResult Search(string searchStr, string tag)
+        {
+            return View(new SearchResults("*", new string[] { String.Format("{0}|{1}", EBPOC.Web.Helpers.SiteHelper.GetDictionaryText("Tags"), tag) }));
+        }
+
         [HttpPost]
-        public ActionResult Search(string SearchStr)
+        public ActionResult Search(string searchStr, string[] facets)
         {
-            List<SearchResultItem> results = new List<SearchResultItem>();
-            results = CustomSearch(SearchStr);
-
-            SearchResultItem searchResultItem = new SearchResultItem();
-            searchResultItem.Name = results.Where(x => x.Language.Contains(Sitecore.Context.Language.Name)).SingleOrDefault().Name;
-            //results.Add(searchResultItem);
-            Models.SearchResults s = new Models.SearchResults();
-            s.SearchString = searchResultItem.Name;
-            // s.Item= results.SingleOrDefault().GetItem();
-            //s.ItemDescription = results.SingleOrDefault().GetField("Body").ToString();
-            return View("SearchResult", s);
+            return View(new SearchResults(searchStr, facets));
         }
 
-        public List<SearchResultItem> CustomSearch(string str)
-        {
-            string index = string.Format("sitecore_{0}_index", Sitecore.Context.Database.Name);
-            using (var context = ContentSearchManager.GetIndex(index).CreateSearchContext())
-            {
-                var query = context.GetQueryable<SearchResultItem>().Where(i => i.Path.StartsWith("/sitecore/content/SCEBHome")).Where(x => x.TemplateName == "EBArticleTemplate").Where(x => x.Name.Contains(str));
-
-                return query.ToList();
-            }
-
-        }
     }
-}
+
+        }
+   

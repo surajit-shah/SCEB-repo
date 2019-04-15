@@ -30,5 +30,16 @@ namespace EBPOC.Web.Helpers
             ImageField imageField = item.Fields[fieldName];
             return Sitecore.Resources.Media.MediaManager.GetMediaUrl(imageField.MediaItem);
         }
+
+        public static bool DoesItemExistInCurrentLanguage(Item i)
+        {
+            if (i.Versions.Count != 0) return true;
+
+            return false;
+        }
+        public static string GetDictionaryText(string key)
+        {
+            return Sitecore.Globalization.Translate.Text(key);
+        }
     }
 }

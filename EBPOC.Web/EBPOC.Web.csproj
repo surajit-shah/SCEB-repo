@@ -112,7 +112,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Configuration\Comparers\ItemIDComparer.cs" />
+    <Compile Include="Configuration\Comparers\ItemSorterByTitle.cs" />
+    <Compile Include="Configuration\Helpers\HtmlRemoval.cs" />
+    <Compile Include="Configuration\Helpers\UIHelpers.cs" />
+    <Compile Include="Configuration\Models\SitecoreItem.cs" />
+    <Compile Include="Controllers\EBPOCSitecoreBaseController.cs" />
+    <Compile Include="Controllers\ListController.cs" />
+    <Compile Include="Controllers\SCArticlesController.cs" />
     <Compile Include="Controllers\SCContactController.cs" />
+    <Compile Include="Models\SCArticleVM.cs" />
+    <Compile Include="Models\ResultItems.cs" />
     <Compile Include="Models\SCContactProfileVM.cs" />
     <Compile Include="Controllers\SCDocumentsController.cs" />
     <Compile Include="Controllers\SCNavigationsController.cs" />
@@ -123,12 +133,16 @@
     <Compile Include="Models\DocumentDetails.cs" />
     <Compile Include="Models\SCContactVM.cs" />
     <Compile Include="Models\SearchResults.cs" />
+    <Compile Include="Models\SimpleItem.cs" />
+    <Compile Include="Models\SimpleItemList.cs" />
+    <Compile Include="Models\SiteConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\z.Example\Sites.config">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="App_Config\Include\z.Article.DefaultSolrFacilities.IndexDefinition.config.disabled" />
     <None Include="packages.config" />
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\font-awesome.min.css" />
@@ -180,7 +194,6 @@
     <Content Include="Views\Shared\ExperienceExplorerView.cshtml" />
     <None Include="Properties\PublishProfiles\EBPOCPublish.pubxml" />
     <Content Include="Views\Shared\SCBlocks\SCHtmlBlock.cshtml" />
-    <Content Include="Views\SCPromotions\SCContentBox.cshtml" />
     <Content Include="Views\SCMenus\SCTopMenu.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -204,6 +217,9 @@
     <Content Include="Views\SCNavigations\SCLanguageSwitcher.cshtml" />
     <Content Include="Views\SCNavigations\SCCarousel.cshtml" />
     <Content Include="Views\SCPromotions\SCContactForm.cshtml" />
+    <Content Include="Views\Search\Search.cshtml" />
+    <Content Include="Views\SCArticles\SCArticleList.cshtml" />
+    <Content Include="Views\SCArticles\SCContentBox.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -232,8 +248,7 @@
           <IISUrl>http://localhost:55265/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://ebpoc9.local/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

@@ -13,6 +13,15 @@ namespace EBPOC.Web.Controllers
         // GET: Default
         public ActionResult SCContact()
         {
+            //IncidentCategoryList is the list control
+            //In this example we are only showing child items of the datasourced item which are using a specific Sitecore template named 'IncidentCategory'
+
+            //foreach (
+            //    var categoryDropDownItem in
+            //        DataSourceItem(IncidentCategoryItemId).Children.Where(z => z.TemplateName == "IncidentCategory"))
+            //{
+            //    IncidentCategoryList.Add(categoryDropDownItem.DisplayName);
+            //}
             return View();
         }
         // POST: Default
