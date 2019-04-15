@@ -1,0 +1,66 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using EBPOC.Web.Helpers
+@model RenderingModel
+@{
+
+}
+@*<div>
+        @Model.Item.Name has a title @Model.Item.Fields["Title"]
+    </div>*@
+<div class="row" id="footern">
+    @Html.Sitecore().Placeholder("MainPage.Grid.DocumentList")
+    @*<div class="col-md-10 col-sm-8">
+            <ul class="footer_ul">
+                <li class="footer_li">
+                    <a title="Plan cafétaria pour salariés" href="" target="_blank">Plan cafétaria pour salariés</a>
+                </li>
+                <li class="footer_li">
+                    <a title="Assurance de groupe pour PME" href="" target="_blank">Assurance de groupe pour PME</a>
+                </li>
+                <li class="footer_li">
+                    <a title="Assurance incapacité de travail pour salariés" href="" target="_blank">Assurance incapacité de travail pour salariés</a>
+                </li>
+            </ul>
+            <ul class="footer_ul">
+                <li class="footer_li">
+                    <a title="Assurance hospitalisation collective" href="" target="_blank">Assurance hospitalisation collective</a>
+                </li>
+                <li class="footer_li">
+                    <a title="Plan Bonus" href="" target="_blank">Plan Bonus</a>
+                </li>
+                <li class="footer_li">
+                    <a title="Contribution personnelle salariés" href="" target="_blank">Contribution personnelle salariés</a>
+                </li>
+            </ul>
+            <ul class="footer_ul">
+                <li class="footer_li">
+                    <a title="Plan santé pour PME" href="" target="_blank">Plan santé pour PME</a>
+                </li>
+            </ul>
+        </div>*@
+    <div class="col-md-2 col-sm-4">
+        <ul class="footer_ul">
+            <li class="footer_li_2">
+                <a title="Le Groupe AXA" href="http://www.axa.be/fr/bi_kerncijfers.html" target="_blank">Le Groupe </a>
+            </li>
+            <li class="footer_li_2">
+                <a title="Presse" href="http://www.axa.be/fr/bi_bel_pers.html" target="_blank">Presse</a>
+            </li>
+            <li class="footer_li_2">
+                <a title="Entreprise responsable" href="http://www.axa.be/fr/bi_mvo_int01.html" target="_blank">Entreprise responsable</a>
+            </li>
+            <li class="footer_li_2">
+                <a title="Sponsoring" href="http://www.axa.be/fr/bi_spons.html" target="_blank"> Sponsoring</a>
+            </li>
+            <li class="footer_li_2">
+                <a title=" Atout Coeur" href="http://www.axa.be/fr/bi_ht_soceng.html" target="_blank">Atout Coeur</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<ul class="footer_ul_copyright">
+    <li class="footer_li_2">
+        <a title="Copyright © 2017" href="/employeebenefits#">Copyright © 2017</a>
+    </li>
+</ul>

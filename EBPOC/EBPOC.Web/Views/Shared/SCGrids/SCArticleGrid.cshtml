@@ -1,0 +1,26 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model RenderingModel
+@{
+
+}
+
+<!--Header for the page begins-->
+<div class="container">
+    <div class="row">
+        <div id="atest">&nbsp;</div>
+        @Html.Sitecore().Placeholder("ArticlePage.Grid.Header")
+    </div>
+    <!--Header for the page ends-->
+    <div class="row" id="maincontent">
+        <div class="col-md-9" id="firstContent">
+            @Html.Sitecore().Placeholder("ArticlePage.Grid.Left")
+        </div>
+        <div class="col-md-3">
+            @Html.Sitecore().Placeholder("ArticlePage.Grid.Right")
+        </div>
+    </div>
+    <!--Footer content starts-->
+    @Html.Sitecore().Placeholder("ArticlePage.Grid.Footer")
+    <!--Footer content ends-->
+</div>

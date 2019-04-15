@@ -1,0 +1,22 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model IDictionary<string, string>
+<ul id="lang">
+    @foreach (var language in Model)
+    {
+        string[] lanValues = language.Value.Split('/');
+        if (language.Key.ToUpper() == "ENGLISH")
+        {
+            //Dutch(Netherlands)
+            <li class="selected">
+                <a href="@language.Value">@lanValues[1].ToUpper()</a>
+            </li>
+        }
+        else
+        {
+            <li id="langLast">
+                <a href="@language.Value">@lanValues[1].Substring(lanValues[1].Length - 2).ToUpper()</a>
+            </li>
+        }
+    }
+</ul>

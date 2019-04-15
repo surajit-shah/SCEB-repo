@@ -1,0 +1,15 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using EBPOC.Web.Models
+
+@model IEnumerable<CarouselSlide>
+<div class="carousel-inner" role="listbox">
+    @foreach (var item in Model)
+    {
+        <div>
+            <a href="@item.Url" title="@item["Title"]">
+                @item.Image
+            </a>
+        </div>
+    }
+</div>

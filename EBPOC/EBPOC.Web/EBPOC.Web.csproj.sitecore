@@ -1,0 +1,57 @@
+﻿<Project>
+  <PropertyGroup>
+    <Site Server="EBPOC9.local" UserName="sitecore\admin" IsRemoteSitecore="False" />
+  </PropertyGroup>
+  <File Include="Views\SCPromotions\SCContentBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0" />
+  <File Include="Views\Shared\SCGrids\SCArticleGrid.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{722A4BDF-D050-4E18-A88E-BE447DD4D586}</Item>
+  </File>
+  <File Include="Views\Shared\SCBlocks\SCHeader.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{48A23078-D5F8-4142-85DE-67115EB2675C}</Item>
+  </File>
+  <File Include="Views\Shared\SCBlocks\SCFooter.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{339B9157-73D9-456C-829E-4262D25F1F6B}</Item>
+  </File>
+  <File Include="Views\Shared\SCBlocks\SCRightSideBar.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{85751A65-6836-4A21-8B9D-6CA31FAEFB8F}</Item>
+  </File>
+  <File Include="Views\Shared\SCGrids\SCMainGrid.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{26553DDB-3F31-4608-9CFE-613A23708372}</Item>
+  </File>
+  <File Include="Views\SCPromotions\SCDialBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{6946EB09-739A-47E9-A68C-50400EA9055F}</Item>
+  </File>
+  <File Include="Views\SCDocuments\SCMediaDownloadLink.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{40CF7FAF-7D7D-456A-AD77-B9ADEF64A735}</Item>
+  </File>
+  <File Include="Views\SCDocuments\SCDocumentList.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{719CDE7C-5024-45E0-B665-05841C33571A}</Item>
+  </File>
+  <File Include="Views\SCPromotions\SCPromotionBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{8E3D4F41-24AB-4794-800C-00A7240E6B25}</Item>
+  </File>
+  <File Include="Views\SCPromotions\SCContactBody.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{98B38F1D-079D-4215-BEB6-94C200F6E1DC}</Item>
+  </File>
+  <File Include="Views\SCPromotions\SCEmployeeBody.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{48253C7F-3B43-4DB5-8C3E-140EE1FCD26C}</Item>
+  </File>
+  <File Include="Views\Shared\SCMainLayout.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{C38CC79B-949B-4205-8D97-A84EA283D64A}</Item>
+  </File>
+  <File Include="/Views/Shared/SCMainLayout.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{C38CC79B-949B-4205-8D97-A84EA283D64A}</Item>
+  </File>
+  <File Include="Views\Shared\SCArticleLayout.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{E5D860F1-2561-4647-870D-244DD05E8F34}</Item>
+  </File>
+  <File Include="/Views/Shared/SCArticleLayout.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{E5D860F1-2561-4647-870D-244DD05E8F34}</Item>
+  </File>
+  <File Include="Views\SCNavigations\SCLanguageSwitcher.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{55F58F93-3EE0-4975-A4B4-D44AF72D0E92}</Item>
+  </File>
+  <File Include="Controllers\SCNavigationsController.cs" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{51535331-3C14-47B8-965F-649D3144A4BE}</Item>
+  </File>
+</Project>
