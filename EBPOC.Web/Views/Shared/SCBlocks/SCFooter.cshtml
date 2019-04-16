@@ -9,7 +9,7 @@
         @Model.Item.Name has a title @Model.Item.Fields["Title"]
     </div>*@
 <div class="row" id="footern">
-    @Html.Sitecore().Placeholder("MainPage.Grid.DocumentList")
+    @Html.Sitecore().Controller("SCDocuments", "SCDocumentList")
     @*<div class="col-md-10 col-sm-8">
             <ul class="footer_ul">
                 <li class="footer_li">

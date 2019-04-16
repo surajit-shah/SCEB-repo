@@ -15,7 +15,7 @@
             if (@item["Show in Menu"] == "1")
             {
                 <a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">
-                    @item.Fields["Title"].Value
+                    @item.Fields["Meta Title"].Value
                 </a>
             }
         }

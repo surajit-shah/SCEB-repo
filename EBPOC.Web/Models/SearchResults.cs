@@ -19,7 +19,7 @@ namespace EBPOC.Web.Models
 
         public string SearchitemDescription { get; set; }
 
-        
+
         public string[] SelectedFacets
         {
             get { return null; }
@@ -43,9 +43,13 @@ namespace EBPOC.Web.Models
 
             using (var context = ContentSearchManager.GetIndex(indexname).CreateSearchContext())
             {
-                // Start the search query building
-                // var query = context.GetQueryable<SitecoreItem>().Where(item => item.Path.StartsWith(Sitecore.Context.Site.StartPath));
-                var query = context.GetQueryable<SitecoreItem>().Where(item => item.Path.StartsWith("/sitecore/content/EmployeeBenefits")).Where(x => x.TemplateName == "EBArticleTemplate");
+                //generic search
+                var query = context.GetQueryable<SitecoreItem>().Where(item => item.Path.StartsWith("/sitecore/content/EmployeeBenefits"));//.Where(x => x.TemplateName == "EBArticleTemplate");
+
+                var templatebasedsearchquery = context.GetQueryable<SitecoreItem>().Where(item => item.Path.StartsWith("/sitecore/content/EmployeeBenefits")).Where(x => x.TemplateName == "EBArticleTemplate");
+                //searchStr based on a template
+
+
                 // we will split the spaces and require all words to be in the index.
                 foreach (string word in searchStr.Split(' '))
                 {
@@ -70,32 +74,32 @@ namespace EBPOC.Web.Models
                   .Filter(item => item.Language == Sitecore.Context.Language.Name)
                   //.Filter(item => item.HasPresentation)
                   //.Filter(item => item.ShowInSearchResults)
-                  //.FacetOn(item => item.Tags).FacetOn(item => item.TemplateName)
+                  //.FacetOn(item => item.Tags).
+                  //.FacetOn(item => item.ArticleGroupName)
+                  //.FacetOn(item => item.ArticleGroupName)
                   .GetResults();
 
-               // Results = new List<ResultItem>();
+                // Results = new List<ResultItem>();
                 this.Results = new List<SimpleItem>();
                 this.Facets = new List<Facet>();
 
                 this.SearchString = searchStr;
-                
-                
+
+
                 foreach (SearchHit<SitecoreItem> result in results.Hits)
                 {
-                    
+
                     this.Results.Add(new SimpleItem(result.Document.GetItem()));
                     this.SearchItemName = result.Document.GetItem().Fields["Meta Title"].ToString();
                     this.SearchitemDescription = result.Document.GetItem().Fields["Meta Description"].ToString();
-                    //SimpleItem simpleItem = new SimpleItem(result.Document.GetItem());
-                    //simpleItem.MetaKeywords=result.Document.GetItem().
-
+                 //  resultItems.Add(result.Document.get)
                 }
-               
+
                 foreach (FacetCategory fc in results.Facets.Categories)
                 {
                     Facet f = new Facet();
                     f.Items = new List<FacetItem>();
-
+                    //if(fc.Name==)
                     if (fc.Name == "_templatename")
                     {
                         f.FacetName = SiteConfiguration.GetDictionaryText("Type");

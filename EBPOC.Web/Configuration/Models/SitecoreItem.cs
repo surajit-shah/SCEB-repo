@@ -23,5 +23,13 @@ namespace EBPOC.Web.Configuration.Search.Models
 
     [IndexField("show_in_search_results")]
     public bool ShowInSearchResults { get; set; }
-  }
+
+    [IndexField("articlegroupname")]
+    public bool ArticleGroupName { get; set; }
+
+   [IndexField("articlecategories")]
+   public IEnumerable<string> ArticleCategories { get; set; }
+
+
+    }
 }

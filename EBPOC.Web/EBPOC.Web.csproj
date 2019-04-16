@@ -114,6 +114,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Configuration\Comparers\ItemIDComparer.cs" />
     <Compile Include="Configuration\Comparers\ItemSorterByTitle.cs" />
+    <Compile Include="Configuration\ComputedFields\ArticleCategoriesComputedField.cs" />
+    <Compile Include="Configuration\ComputedFields\HasPresentationComputedField.cs" />
     <Compile Include="Configuration\Helpers\HtmlRemoval.cs" />
     <Compile Include="Configuration\Helpers\UIHelpers.cs" />
     <Compile Include="Configuration\Models\SitecoreItem.cs" />
@@ -142,7 +144,7 @@
     <Content Include="App_Config\Include\z.Example\Sites.config">
       <SubType>Designer</SubType>
     </Content>
-    <None Include="App_Config\Include\z.Article.DefaultSolrFacilities.IndexDefinition.config.disabled" />
+    <Content Include="App_Config\Include\Sitecore.ContentSearch.Solr.Index.Master.Products.config" />
     <None Include="packages.config" />
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\font-awesome.min.css" />

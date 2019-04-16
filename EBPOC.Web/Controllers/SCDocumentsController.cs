@@ -1,4 +1,5 @@
 ﻿using EBPOC.Web.Models;
+using Sitecore;
 using Sitecore.Collections;
 using Sitecore.Data.Fields;
 using Sitecore.Mvc.Presentation;
@@ -45,6 +46,8 @@ namespace EBPOC.Web.Controllers
                 //Sitecore.Data.Items.Item sampleItem = Sitecore.Context.Database.GetItem("/sitecore/media library/Files/yourhtmlfile");
                 Sitecore.Data.Items.Item sampleMedia = (Sitecore.Data.Items.Item)imgItem;
                 Media xxx = MediaManager.GetMedia(sampleMedia);
+                string mediaUrl = MediaManager.GetMediaUrl(sampleMedia);
+                mediaUrl = StringUtil.EnsurePrefix('/', mediaUrl);
                 var fileType = sampleMedia.Fields["Extension"].Value;
                 if (fileType == "pdf" || fileType == "PDF")
                 {
@@ -61,6 +64,7 @@ namespace EBPOC.Web.Controllers
                 documentDetails.Name = xxx.MediaData.MediaItem.Title;
                 documentDetails.Image = xxx.MediaData.MediaItem.Name;
                 documentDetails.Scource = xxx.MediaData.MediaItem.Path;
+                documentDetails.MediaUrl = mediaUrl;
                 lstStandardizedSolutions.Add(documentDetails);
             }
             //LanguageCollection languageCollection = LanguageManager.GetLanguages(Context.Database);

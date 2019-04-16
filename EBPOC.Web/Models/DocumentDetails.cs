@@ -11,6 +11,7 @@ namespace EBPOC.Web.Models
         private string _type = "N/A";
         private string _image = "N/A";
         private string _source = "N/A";
+        private string _mediaUrl = "N/A";
         //private int age = 0;
 
         // Declare a Name property of type string:
@@ -60,6 +61,20 @@ namespace EBPOC.Web.Models
             {
                 _source = value;
             }
+        }
+
+        public string MediaUrl
+        {
+            get {
+                return _mediaUrl;
+            }
+
+            set {
+
+                _mediaUrl = value;
+
+            }
+
         }
 
         //// Declare an Age property of type int:
