@@ -1,0 +1,16 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using EBPOC.Web.Models
+
+@model IEnumerable<SCDialBoxVM>
+@foreach (var item in Model)
+{
+    <div id="dail_box" style="width: 230px;height: 160px;background: url(@item.DialBoxBGImage);">
+        @*@Html.Sitecore().Field("link", new { text = Html.Sitecore().Field("image") })*@
+        <a href="" title="All benefits,no paper">
+            <strong>
+                @item.DialBoxText
+            </strong>
+        </a>
+    </div>
+}

@@ -4,8 +4,7 @@
 
 @model List<DocumentDetails>
 
-
-    <div class="col-md-10 col-sm-8">
+@*<div class="col-md-10 col-sm-8">
         @if (Model != null)
         {
             <ul class="footer_ul">
@@ -17,4 +16,34 @@
                 }
             </ul>
         }
-    </div>
+    </div>*@
+
+<div class="col-md-10 col-sm-8">
+    @if (Model != null)
+    {
+        for (var i = 0; i < Model.Count; i = i + 3)
+        {
+            <ul class="footer_ul">
+                @for (var j = i; j < i + 3; j++)
+                {
+                    var document = Model[j];
+                    <li class="footer_li">
+                        <a title="@document.Name" href="@document.MediaUrl" target="_blank">@document.Name</a>
+                    </li>
+
+                    @*@if (i % 3 == 0)
+                        {
+                        </ul>
+                        <ul class="footer_ul">
+                            }*@
+                    @*@foreach (var document in Model)
+                        {
+                            <li class="footer_li">
+                                <a title="@document.Name" href="@document.Scource" target="_blank">@document.Name</a>
+                            </li>
+                        }*@
+                }
+            </ul>
+        }
+    }
+</div>

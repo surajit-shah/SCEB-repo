@@ -14,7 +14,7 @@ using System.Web.Mvc;
 
 namespace EBPOC.Web.Controllers
 {
-    public class SearchController : Controller
+    public class SCSearchController : Controller
     {
         // GET: Search
         //[HttpPost]
@@ -59,7 +59,7 @@ namespace EBPOC.Web.Controllers
 
         //        }
         [HttpGet]
-    public ActionResult Search(string searchStr, string tag)
+        public ActionResult Search(string searchStr, string tag)
         {
             return View(new SearchResults("*", new string[] { String.Format("{0}|{1}", EBPOC.Web.Helpers.SiteHelper.GetDictionaryText("Tags"), tag) }));
         }
@@ -72,5 +72,5 @@ namespace EBPOC.Web.Controllers
 
     }
 
-        }
-   
+}
+
