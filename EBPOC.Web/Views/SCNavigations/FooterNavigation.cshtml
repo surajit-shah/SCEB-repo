@@ -1,0 +1,15 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@model List<EBPOC.Web.Models.FooterNavigation>
+
+<ul class="footer_ul">
+    @foreach (var item in Model)
+    {
+        <li class="footer_li_2">
+          <a href="@item.FooterText">@item.Title</a>
+        </li>
+
+    }
+
+
+</ul>

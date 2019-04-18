@@ -123,6 +123,7 @@
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\SCArticlesController.cs" />
     <Compile Include="Controllers\SCContactController.cs" />
+    <Compile Include="Models\FooterNavigation.cs" />
     <Compile Include="Models\SCArticleVM.cs" />
     <Compile Include="Models\ResultItems.cs" />
     <Compile Include="Models\SCContactProfileVM.cs" />
@@ -222,6 +223,8 @@
     <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\SCArticles\SCArticleList.cshtml" />
     <Content Include="Views\SCArticles\SCContentBox.cshtml" />
+    <Content Include="Views\SCNavigations\Breadcrumbs.cshtml" />
+    <Content Include="Views\SCNavigations\FooterNavigation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

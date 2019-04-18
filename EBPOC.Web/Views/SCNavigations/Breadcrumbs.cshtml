@@ -1,0 +1,28 @@
+﻿@using EBPOC.Web.Configuration.SiteUI
+@model IEnumerable<EBPOC.Web.Models.SimpleItem>
+<div id="ctl00_PageHolder_HomePageNavHolder_HPLinks_HPLinks1_panLinkList">
+    <ul>
+        @foreach (var item in Model)
+        {
+            if (!@Model.IsLast(item))
+            {
+                <li class="@(Model.IsFirst(item) ? "home" : "")"><a href="@item.Url">@Html.Sitecore().Field("Meta Title", item.Item)</a></li> }
+            else
+            {
+                <li>@Html.Sitecore().Field("Meta Title", item.Item)</li>}
+        }
+    </ul>
+    @*<div id="ctl00_PageHolder_HomePageNavHolder_HPLinks_HPLinks1_panLinkList">
+        <ul>
+            <li>
+                <a title="Qui sommes-nous ?" href="">Qui sommes-nous ?</a>
+            </li>
+            <li>
+                <a title="Nouveautés" href="">Nouveautés</a>
+            </li>
+            <li>
+                <a title="Le marché financier - Groupe et Belgium" href="">Le marché financier -  Groupe et Belgium</a>
+            </li>
+        </ul>
+    </div>*@
+</div>

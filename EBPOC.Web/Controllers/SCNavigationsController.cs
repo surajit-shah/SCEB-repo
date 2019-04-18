@@ -66,5 +66,39 @@ namespace EBPOC.Web.Controllers
             );
             return url;
         }
+
+        public ActionResult Breadcrumbs()
+        {
+            if (Sitecore.Context.Item.ID != EBPOC.Web.Helpers.SiteHelper.GetHomeItem().ID)
+            {
+                List<SimpleItem> items = new List<SimpleItem>();
+                Item temp = Sitecore.Context.Item;
+
+                while (temp.ID != EBPOC.Web.Helpers.SiteHelper.GetHomeItem().ParentID)
+                {
+                    items.Add(new SimpleItem(temp));
+                    temp = temp.Parent;
+                }
+
+                items.Reverse();
+                return View(items);
+            }
+            return null;
+        }
+
+        public ActionResult FooterNavigation()
+        {
+            List<FooterNavigation> items = new List<FooterNavigation>();
+            Item homeItem = EBPOC.Web.Helpers.SiteHelper.GetHomeItem();
+            if (homeItem != null)
+            {
+                if (homeItem["Show in Footer Menu"] == "1" ) items.Add(new FooterNavigation(homeItem));
+                foreach (Item i in homeItem.Axes.GetDescendants().Where(x => x["Show in Footer Menu"] == "1" ))
+                {
+                    items.Add(new FooterNavigation(i));
+                }
+            }
+            return items.Count > 0 ? View(items) : null;
+        }
     }
 }
