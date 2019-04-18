@@ -7,10 +7,10 @@
 }
 <div class="row">
     <div class="topnav" id="myTopnav">
-        <a class="active" href="@Sitecore.Links.LinkManager.GetItemUrl(EBPOC.Web.Helpers.SiteHelper.ProductItem())">
+        <a class="active" href="@Sitecore.Links.LinkManager.GetItemUrl(EBPOC.Web.Helpers.SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome"))">
             @SiteHelper.HomeItem().Fields["Meta Title"].Value
         </a>
-        @foreach (var item in SiteHelper.ProductItem().Children.ToArray())
+        @foreach (var item in SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome").Children.ToArray())
         {
             if (@item["Show in Menu"] == "1")
             {

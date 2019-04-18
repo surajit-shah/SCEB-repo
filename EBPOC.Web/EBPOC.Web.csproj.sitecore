@@ -30,7 +30,7 @@
   <File Include="Views\SCPromotions\SCPromotionBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{8E3D4F41-24AB-4794-800C-00A7240E6B25}</Item>
   </File>
-  <File Include="Views\SCPromotions\SCContactBody.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+  <File Include="Views\SCContactProfiles\SCContactBody.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{98B38F1D-079D-4215-BEB6-94C200F6E1DC}</Item>
   </File>
   <File Include="Views\SCPromotions\SCEmployeeBody.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">

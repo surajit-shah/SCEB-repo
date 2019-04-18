@@ -17,9 +17,9 @@ namespace EBPOC.Web.Helpers
             return Sitecore.Context.Database.GetItem(homePath);
         }
 
-        public static Item ProductItem()
+        public static Item ProductItems(string scpath)
         {
-            string productPath = "/sitecore/content/EmployeeBenefits/Pages/SCEBHome";
+            string productPath = scpath ;
             return Sitecore.Context.Database.GetItem(productPath);
         }
         public static string GetMediaUrl(this Sitecore.Mvc.Helpers.SitecoreHelper sitecoreHelper, string fieldName)

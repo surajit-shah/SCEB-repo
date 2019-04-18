@@ -122,7 +122,7 @@
     <Compile Include="Controllers\EBPOCSitecoreBaseController.cs" />
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\SCArticlesController.cs" />
-    <Compile Include="Controllers\SCContactController.cs" />
+    <Compile Include="Controllers\SCContactProfilesController.cs" />
     <Compile Include="Controllers\SCDialBoxesController.cs" />
     <Compile Include="Controllers\SCSearchController.cs" />
     <Compile Include="Models\SCDialBoxVM.cs" />
@@ -213,18 +213,19 @@
     <Content Include="Views\SCDocuments\SCDocumentList.cshtml" />
     <Content Include="Views\SCSearch\SearchBox.cshtml" />
     <Content Include="Views\SCPromotions\SCPromotionBox.cshtml" />
-    <Content Include="Views\SCPromotions\SCContactBody.cshtml" />
+    <Content Include="Views\SCContactProfiles\SCContactBody.cshtml" />
     <Content Include="Views\SCPromotions\SCEmployeeBody.cshtml" />
     <Content Include="Views\Shared\SCMainLayout.cshtml" />
     <Content Include="Views\Shared\SCArticleLayout.cshtml" />
     <Content Include="Views\SCNavigations\SCLanguageSwitcher.cshtml" />
     <Content Include="Views\SCNavigations\SCCarousel.cshtml" />
-    <Content Include="Views\SCPromotions\SCContactForm.cshtml" />
+    <Content Include="Views\SCContactProfiles\SCContactForm.cshtml" />
     <Content Include="Views\SCArticles\SCArticleList.cshtml" />
     <Content Include="Views\SCArticles\SCContentBox.cshtml" />
     <Content Include="Views\SCDialBoxes\SCDialBoxList.cshtml" />
     <Content Include="Views\SCSearch\Search.cshtml" />
     <Content Include="Views\SCSearch\SearchResult.cshtml" />
+    <Content Include="Views\SCContactProfiles\SCContactProfiles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -234,7 +235,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Search\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

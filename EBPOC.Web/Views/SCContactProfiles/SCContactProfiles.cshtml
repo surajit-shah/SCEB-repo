@@ -1,0 +1,12 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using EBPOC.Web.Models
+
+@model SCContactVM
+
+<div class="form_field">
+    @Html.DropDownListFor(
+        x => x.SelectedProfileId,
+        new SelectList(Model.ContactProfiles, "ContactProfileValue", "ContactProfileName"), new { id = "ddlContactProfile" }
+    )
+</div>
