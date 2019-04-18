@@ -3,14 +3,12 @@
 
 
 <div id="search">
-    @using (Html.BeginForm("Search", "Search", FormMethod.Post))
+    @using (Html.BeginForm("Search", "SCSearch", FormMethod.Post))
     {
         <form action="/Search" method="post" id="searchform">
-
             <input name="SearchStr" type="text" id="SearchStr" class="searchInputFR">
-            <input type="submit" class="magSubmit" value="search" />
+            <input type="submit" class="magSubmit" value="" />
             @*<a id="" title="Search" class="magSubmit" href=''></a>*@
-
         </form>
     }
 </div>

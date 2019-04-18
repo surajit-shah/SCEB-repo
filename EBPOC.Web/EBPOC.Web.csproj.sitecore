@@ -18,7 +18,7 @@
   <File Include="Views\Shared\SCGrids\SCMainGrid.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{26553DDB-3F31-4608-9CFE-613A23708372}</Item>
   </File>
-  <File Include="Views\SCPromotions\SCDialBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+  <File Include="Views\SCDialBoxes\SCDialBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{6946EB09-739A-47E9-A68C-50400EA9055F}</Item>
   </File>
   <File Include="Views\SCDocuments\SCMediaDownloadLink.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
@@ -56,5 +56,11 @@
   </File>
   <File Include="Controllers\SCArticlesController.cs" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{E7E27AB4-E6AE-4B1B-890A-3521EF071A2D}</Item>
+  </File>
+  <File Include="Controllers\SCDialBoxesController.cs" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{41E6013E-3574-4058-AE6F-FDF4331FA7FF}</Item>
+  </File>
+  <File Include="Views\SCDialBoxes\SCDialBoxList.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{63040E3F-5982-4930-9AED-0EAFC68DF3B7}</Item>
   </File>
 </Project>

@@ -114,6 +114,9 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
     height: 22px;
     width: 40px;
     float: right;
+    border: none;
+    border-top: none !important;
+    border-radius: inherit !important;
 }
 #hpnav {
     line-height: 40px;

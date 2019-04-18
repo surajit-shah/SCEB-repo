@@ -123,12 +123,14 @@
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\SCArticlesController.cs" />
     <Compile Include="Controllers\SCContactController.cs" />
+    <Compile Include="Controllers\SCDialBoxesController.cs" />
+    <Compile Include="Controllers\SCSearchController.cs" />
+    <Compile Include="Models\SCDialBoxVM.cs" />
     <Compile Include="Models\SCArticleVM.cs" />
     <Compile Include="Models\ResultItems.cs" />
     <Compile Include="Models\SCContactProfileVM.cs" />
     <Compile Include="Controllers\SCDocumentsController.cs" />
     <Compile Include="Controllers\SCNavigationsController.cs" />
-    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Helpers\SiteHelper.cs" />
     <Compile Include="Models\CarouselSlide.cs" />
     <Compile Include="Models\SCProfileFieldVM.cs" />
@@ -206,11 +208,10 @@
     <Content Include="Views\Shared\SCBlocks\SCFooter.cshtml" />
     <Content Include="Views\Shared\SCBlocks\SCRightSideBar.cshtml" />
     <Content Include="Views\Shared\SCGrids\SCMainGrid.cshtml" />
-    <Content Include="Views\SCPromotions\SCDialBox.cshtml" />
+    <Content Include="Views\SCDialBoxes\SCDialBox.cshtml" />
     <Content Include="Views\SCDocuments\SCMediaDownloadLink.cshtml" />
     <Content Include="Views\SCDocuments\SCDocumentList.cshtml" />
     <Content Include="Views\SCSearch\SearchBox.cshtml" />
-    <Content Include="Views\Search\SearchResult.cshtml" />
     <Content Include="Views\SCPromotions\SCPromotionBox.cshtml" />
     <Content Include="Views\SCPromotions\SCContactBody.cshtml" />
     <Content Include="Views\SCPromotions\SCEmployeeBody.cshtml" />
@@ -219,9 +220,11 @@
     <Content Include="Views\SCNavigations\SCLanguageSwitcher.cshtml" />
     <Content Include="Views\SCNavigations\SCCarousel.cshtml" />
     <Content Include="Views\SCPromotions\SCContactForm.cshtml" />
-    <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\SCArticles\SCArticleList.cshtml" />
     <Content Include="Views\SCArticles\SCContentBox.cshtml" />
+    <Content Include="Views\SCDialBoxes\SCDialBoxList.cshtml" />
+    <Content Include="Views\SCSearch\Search.cshtml" />
+    <Content Include="Views\SCSearch\SearchResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -231,6 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Search\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
