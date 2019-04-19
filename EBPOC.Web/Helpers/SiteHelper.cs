@@ -58,5 +58,31 @@ namespace EBPOC.Web.Helpers
             return mediaUrl;
 
         }
+
+        public static Item GetHomeItem()
+        {
+            
+            Item temp = Sitecore.Context.Item;
+            Item contentNode = Sitecore.Context.Database.GetItem("/sitecore/content/EmployeeBenefits/Pages");
+            while (temp.Parent != null && temp.ParentID != contentNode.ID)
+            {
+                temp = temp.Parent;
+            }
+            return temp;
+
+            
+        }
+
+        
+        public static Item GetHomeItem(Item temp)
+        {
+                     
+            Item contentNode = Sitecore.Context.Database.GetItem("/sitecore/content/EmployeeBenefits/Pages");
+            while (temp.Parent != null && temp.ParentID != contentNode.ID)
+            {
+                temp = temp.Parent;
+            }
+            return temp;
+        }
     }
 }
