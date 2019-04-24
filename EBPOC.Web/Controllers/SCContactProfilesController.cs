@@ -33,7 +33,7 @@ namespace EBPOC.Web.Controllers
         [HttpPost]
         public ActionResult GetContactProfileFields(string categoryId)
         {
-            var lookupId = int.Parse(categoryId);
+            //var lookupId = int.Parse(categoryId);
             //var model = this.GetFullAndPartialViewModel(lookupId);
 
             var contact = new SCContactVM();

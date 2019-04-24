@@ -21,7 +21,7 @@
 <h3>Informations de la société</h3>
 @foreach (var field in Model)
 {
-    @switch (field.FieldType)
+    switch (field.FieldType)
     {
         case "LABEL":
             <div class="form_field">
