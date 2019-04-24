@@ -11,34 +11,34 @@
     <link href="~/Css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Css/profile.css" rel="stylesheet" />
-    <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function () {
         $("#ddlContactProfile").change(function () {
             var categoryId = $("#ddlContactProfile").val();
             @*$("#dvContactFormSection").load('@(Url.Action("GetContactProfileFields","SCContactProfiles",null, Request.Url.Scheme))?categoryId=' + categoryId);*@
-            //var requestData = {
-            //    InvoiceNumber: $.trim(this.value),
-            //    SelectedCompanyCode: $.trim($('#SelectedCompanyCode').val())
-            //};
+
+            var requestData = {
+                categoryId: $.trim(categoryId)
+            };
 
 
-            //$.ajax({
-            //    url: '/en/myController/GetDataForInvoiceNumber',
-            //    type: 'POST',
-            //    data: JSON.stringify(requestData),
-            //    dataType: 'json',
-            //    contentType: 'application/json; charset=utf-8',
-            //    error: function (xhr) {
-            //        alert('Error: ' + xhr.statusText);
-            //    },
-            //    success: function (result) {
-            //        CheckIfInvoiceFound(result);
-            //    },
-            //    async: true,
-            //    processData: false
-            //});
+            $.ajax({
+                url: 'api/Sitecore/SCContactProfiles/GetContactProfileFields',
+                type: 'POST',
+                data: JSON.stringify(requestData),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                error: function (xhr) {
+                    alert('Error: ' + xhr.statusText);
+                },
+                success: function (result) {
+                    CheckIfInvoiceFound(result);
+                },
+                async: true,
+                processData: false
+            });
         });
     });
         function myFunction() {

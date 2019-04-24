@@ -3,43 +3,56 @@
 
 
 
-<div class="container">
-    <div class="row">
-        <div class="row clear-both">
-            <div id="left-sidebar" class="col-md-3 sidebar">
-                <div class="side-nav sidebar-block">
-                    <h2>@SiteHelper.GetDictionaryText("Refine Results")</h2>
-                    <form action="/Search" method="post" id="filterSearch">
-                        @foreach (var facet in Model.Facets)
-                        {
-                            <h3>@facet.FacetName</h3>
-                            <ul class="css-checkboxes">
-                                @foreach (var entry in facet.Items)
-                                {
-                                    <li><input type="checkbox" id="@facet.FacetName|@entry.Id" name="facets" value="@facet.FacetName|@entry.Id" checked="@entry.Selected" onchange="javascript:document.getElementById('filterSearch').submit()" /><label for="@facet.FacetName|@entry.Id">@entry.Name</label></li>
-                                }
-                            </ul>
-                        }
-                        <input type="hidden" value="@Model.SearchString" id="searchStr" name="searchStr" />
-                    </form>
-                    @Html.Sitecore().Placeholder("content-tertiary")
-                </div>
-            </div>
-            <div class="col-md-9 main-column two-columns-left">
-                <h1>@SiteHelper.GetDictionaryText("Search Results for") @Model.SearchString</h1>
+<!--Header for the page begins-->
+@Html.Sitecore().Placeholder("ArticlePage.Grid.Header")
+<!--Header for the page ends-->
+<div class="row" id="maincontent">
+    <div class="col-md-9" id="firstContent">
 
-                @foreach (var item in Model.Results)
-                {
-                    <div>
-                        <p>@Model.SearchItemName</p>
-                        <p>@Model.SearchitemDescription</p>
-                        @*<p>@item.ID</p>*@
-                        @*<a href="@item.Url" class="float-left">@Html.Sitecore().Field("Meta Title", item.Item)</a>
-                            <h3><a href="@item.Url">@Html.Sitecore().Field("Meta Description", item.Item)</a></h3>*@
+        <div class="container">
+            <div class="row">
+                <div class="row clear-both">
+                    <div id="left-sidebar" class="col-md-3 sidebar">
+                        <div class="side-nav sidebar-block">
+                            <h2>@SiteHelper.GetDictionaryText("Refine Results")</h2>
+                            <form action="/Search" method="post" id="filterSearch">
+                                @foreach (var facet in Model.Facets)
+                                {
+                                    <h3>@facet.FacetName</h3>
+                                    <ul class="css-checkboxes">
+                                        @foreach (var entry in facet.Items)
+                                        {
+                                            <li><input type="checkbox" id="@facet.FacetName|@entry.Id" name="facets" value="@facet.FacetName|@entry.Id" checked="@entry.Selected" onchange="javascript:document.getElementById('filterSearch').submit()" /><label for="@facet.FacetName|@entry.Id">@entry.Name</label></li>
+                                        }
+                                    </ul>
+                                }
+                                <input type="hidden" value="@Model.SearchString" id="searchStr" name="searchStr" />
+                            </form>
+                            @Html.Sitecore().Placeholder("content-tertiary")
+                        </div>
                     </div>
-                }
+                    <div class="col-md-9 main-column two-columns-left">
+                        <h1>@SiteHelper.GetDictionaryText("Search Results for") @Model.SearchString</h1>
+
+                        @foreach (var item in Model.Results)
+                        {
+                            <div>
+                                <p>@Model.SearchItemName</p>
+                                <p>@Model.SearchitemDescription</p>
+                                @*<p>@item.ID</p>*@
+                                @*<a href="@item.Url" class="float-left">@Html.Sitecore().Field("Meta Title", item.Item)</a>
+                                    <h3><a href="@item.Url">@Html.Sitecore().Field("Meta Description", item.Item)</a></h3>*@
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <div class="col-md-3">
+        @Html.Sitecore().Placeholder("ArticlePage.Grid.Right")
+    </div>
 </div>
-
+<!--Footer content starts-->
+@Html.Sitecore().Placeholder("ArticlePage.Grid.Footer")
+<!--Footer content ends-->
