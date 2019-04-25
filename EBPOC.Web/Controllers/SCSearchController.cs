@@ -1,4 +1,5 @@
 ﻿using EBPOC.Web.Configuration.Search.Models;
+using EBPOC.Web.Configuration.SiteUI;
 using EBPOC.Web.Models;
 using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.Linq;
@@ -15,7 +16,7 @@ using System.Web.Mvc;
 
 namespace EBPOC.Web.Controllers
 {
-    public class SCSearchController : Controller
+    public class SCSearchController : EBPOCSitecoreBaseController
     {
         // GET: Search
         //[HttpPost]
@@ -68,10 +69,20 @@ namespace EBPOC.Web.Controllers
         [HttpPost]
         public ActionResult Search(string searchStr, string[] facets)
         {
-            //return View(new SearchResults(searchStr, facets));
+            return View(new SearchResults(searchStr, facets));
 
-            var url = LinkManager.GetItemUrl(Sitecore.Context.Database.GetItem("{07F9D462-768E-4126-ADB0-AFB0C2567B98}"));
-            return Redirect(url);
+            //var url = LinkManager.GetItemUrl(Sitecore.Context.Database.GetItem("{07F9D462-768E-4126-ADB0-AFB0C2567B98}"));
+            //return Redirect(url);
+        }
+
+        public ActionResult Results()
+        {
+            if (IsDataSourceItemNull) return null;
+
+            IEnumerable<SimpleItem> items = DataSourceItems.Select(x => new SimpleItem(x)).Where(x => Configuration.SiteConfiguration.DoesItemExistInCurrentLanguage(x.Item));
+            SimpleItemList results = new SimpleItemList(DataSourceItem["Meta Title"], items);
+            return !items.IsNullOrEmpty() ? View("LinkList", results) : null;
+
         }
 
     }

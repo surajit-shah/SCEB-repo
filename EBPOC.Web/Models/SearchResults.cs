@@ -90,8 +90,17 @@ namespace EBPOC.Web.Models
                 {
 
                     this.Results.Add(new SimpleItem(result.Document.GetItem()));
-                    this.SearchItemName = result.Document.GetItem().Fields["Meta Title"].ToString();
-                    this.SearchitemDescription = result.Document.GetItem().Fields["Meta Description"].ToString();
+                    //if (result.Document.GetItem().Fields["MetaTitle"].ToString() != null && result.Document.GetItem().Fields["Meta Description"].ToString() != null)
+                    //{
+                    //    this.SearchItemName = result.Document.GetItem().Fields["Meta Title"].ToString() ?? "Item not Found";
+                    //    this.SearchitemDescription = result.Document.GetItem().Fields["Meta Description"].ToString() ?? "Item not Found";
+                    //}
+                    //else
+                    //{
+                    //    this.SearchItemName =  "Item not Found";
+                    //    this.SearchitemDescription = "Item not Found";
+
+                    //}
                  //  resultItems.Add(result.Document.get)
                 }
 
