@@ -92,13 +92,33 @@ namespace EBPOC.Web.Controllers
             Item homeItem = EBPOC.Web.Helpers.SiteHelper.GetHomeItem();
             if (homeItem != null)
             {
-                if (homeItem["Show in Footer Menu"] == "1" ) items.Add(new FooterNavigation(homeItem));
-                foreach (Item i in homeItem.Axes.GetDescendants().Where(x => x["Show in Footer Menu"] == "1" ))
+                if (homeItem["Show in Footer Menu"] == "1") items.Add(new FooterNavigation(homeItem));
+                foreach (Item i in homeItem.Axes.GetDescendants().Where(x => x["Show in Footer Menu"] == "1"))
                 {
                     items.Add(new FooterNavigation(i));
                 }
             }
             return items.Count > 0 ? View(items) : null;
+        }
+
+        public ActionResult SCNavigationBoxList()
+        {
+            List<SCNavigationBoxVM> navboxlist = new List<SCNavigationBoxVM>();
+            var navboxitem = Sitecore.Context.Database.GetItem("{85DEE9E5-DF7A-4D61-9D8C-5D9815086CF2}");
+            SCNavigationBoxVM navigationBoxVM = new SCNavigationBoxVM(navboxitem);
+            List<SCNavigationVM> articles = new List<SCNavigationVM>();
+            MultilistField multilistField = Sitecore.Context.Database.GetItem("{85DEE9E5-DF7A-4D61-9D8C-5D9815086CF2}").Fields["NavigationList"];
+            if (multilistField != null)
+            {
+                Item[] carouselItems = multilistField.GetItems();
+                foreach (Item item in carouselItems)
+                {
+                    articles.Add(new SCNavigationVM(item));
+                }
+            }
+            navigationBoxVM.NavigationList = articles;
+            navboxlist.Add(navigationBoxVM);
+            return PartialView(navboxlist);
         }
     }
 }

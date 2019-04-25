@@ -63,4 +63,13 @@
   <File Include="Views\SCDialBoxes\SCDialBoxList.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{63040E3F-5982-4930-9AED-0EAFC68DF3B7}</Item>
   </File>
+  <File Include="Controllers\SCContactProfilesController.cs" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{C7BEE63F-D6A0-4302-969B-324324BF72F3}</Item>
+  </File>
+  <File Include="Views\SCNavigations\SCNavigationBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{678023CD-B9D6-4EC4-9CA0-92F1B86C00CE}</Item>
+  </File>
+  <File Include="Views\SCNavigations\NavigationBoxList.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{73D0715A-A468-41ED-85C5-FF5E945F513D}</Item>
+  </File>
 </Project>
