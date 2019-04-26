@@ -1,0 +1,22 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using EBPOC.Web.Models
+
+@model IEnumerable<SCNavigationBoxVM>
+@foreach (var navigationBoxVM in Model)
+{
+    <div class="section">
+        <h2>@navigationBoxVM.NavigationBoxHeader</h2>
+        <p class="legend">(@navigationBoxVM.NavigationBoxSummery)</p>
+        <ul class="highlight_list">
+            @foreach (var navigationVM in @navigationBoxVM.NavigationList)
+            {
+                <li>
+                    <h3>
+                        <a href="@navigationVM.NavigationRedirect">@navigationVM.NavigationText</a>
+                    </h3>
+                </li>
+            }
+        </ul>
+    </div>
+}
