@@ -138,7 +138,6 @@
     <Compile Include="Controllers\SCDialBoxesController.cs" />
     <Compile Include="Controllers\SCSearchController.cs" />
     <Compile Include="Models\FooterNavigation.cs" />
-    <Compile Include="Models\SCNavigationBoxVM.cs" />
     <Compile Include="Models\SCDialBoxVM.cs" />
     <Compile Include="Models\SCArticleVM.cs" />
     <Compile Include="Models\ResultItems.cs" />
@@ -147,6 +146,7 @@
     <Compile Include="Controllers\SCNavigationsController.cs" />
     <Compile Include="Helpers\SiteHelper.cs" />
     <Compile Include="Models\CarouselSlide.cs" />
+    <Compile Include="Models\SCNavigationBoxVM.cs" />
     <Compile Include="Models\SCProfileFieldVM.cs" />
     <Compile Include="Models\DocumentDetails.cs" />
     <Compile Include="Models\SCContactVM.cs" />
