@@ -1,6 +1,6 @@
 ﻿<Project>
   <PropertyGroup>
-    <Site Server="EBPOC9.local" UserName="sitecore\admin" IsRemoteSitecore="False" />
+    <Site Server="SCEB9.local" UserName="sitecore\admin" IsRemoteSitecore="False" />
   </PropertyGroup>
   <File Include="Views\SCArticles\SCContentBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0" />
   <File Include="Views\Shared\SCGrids\SCArticleGrid.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
@@ -69,7 +69,7 @@
   <File Include="Views\SCNavigations\SCNavigationBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{678023CD-B9D6-4EC4-9CA0-92F1B86C00CE}</Item>
   </File>
-  <File Include="Views\SCNavigations\NavigationBoxList.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
-    <Item DatabaseName="master">{73D0715A-A468-41ED-85C5-FF5E945F513D}</Item>
+  <File Include="Views\SCNavigations\SCNavigationBoxList.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{57FAC955-3A65-426B-8CDA-B0E92AC0CD62}</Item>
   </File>
 </Project>

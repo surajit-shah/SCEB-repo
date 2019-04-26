@@ -138,7 +138,7 @@
     <Compile Include="Controllers\SCDialBoxesController.cs" />
     <Compile Include="Controllers\SCSearchController.cs" />
     <Compile Include="Models\FooterNavigation.cs" />
-    <Compile Include="Models\SCNaviagtionVM.cs" />
+    <Compile Include="Models\SCNavigationBoxVM.cs" />
     <Compile Include="Models\SCDialBoxVM.cs" />
     <Compile Include="Models\SCArticleVM.cs" />
     <Compile Include="Models\ResultItems.cs" />
@@ -245,7 +245,7 @@
     <Content Include="Views\SCNavigations\Breadcrumbs.cshtml" />
     <Content Include="Views\SCNavigations\FooterNavigation.cshtml" />
     <Content Include="Views\SCNavigations\SCNavigationBox.cshtml" />
-    <Content Include="Views\SCNavigations\NavigationBoxList.cshtml" />
+    <Content Include="Views\SCNavigations\SCNavigationBoxList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
