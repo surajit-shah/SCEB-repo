@@ -66,9 +66,6 @@
   <File Include="Controllers\SCContactProfilesController.cs" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{C7BEE63F-D6A0-4302-969B-324324BF72F3}</Item>
   </File>
-  <File Include="Views\SCNavigations\SCNavigationBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
-    <Item DatabaseName="master">{678023CD-B9D6-4EC4-9CA0-92F1B86C00CE}</Item>
-  </File>
   <File Include="Views\SCNavigations\SCNavigationBoxList.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{1FE34844-1D6E-4306-8ED5-BEBE9FAF3182}</Item>
   </File>

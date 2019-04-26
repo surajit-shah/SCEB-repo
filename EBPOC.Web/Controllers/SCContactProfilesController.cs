@@ -39,13 +39,16 @@ namespace EBPOC.Web.Controllers
             var contact = new SCContactVM();
             List<SCContactProfileVM> contactProfiles = new List<SCContactProfileVM>();
             //MultilistField multilistField = Sitecore.Context.Database.GetItem("{E8AB9719-69BB-4912-9DA4-55C8995E0A7A}").Fields["Categories"];
-            Item[] multilistField = SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/ContactProfiles/ProfileList").Children.ToArray();
+            Item[] multilistField = SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/ContactProfiles/ProfileFields").Children.ToArray();
             if (multilistField != null)
             {
                 //Item[] carouselItems = multilistField.GetItems();
                 foreach (Item item in multilistField)
                 {
-                    contactProfiles.Add(new SCContactProfileVM(item));
+                    if (item != null)
+                    {
+                        contactProfiles.Add(new SCContactProfileVM(item));
+                    }
                 }
             }
             contact.ContactProfiles = contactProfiles;

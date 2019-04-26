@@ -67,10 +67,13 @@
       <HintPath>..\packages\Sitecore.Mvc.NoReferences.9.0.180604\lib\NET462\Sitecore.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter">
+      <HintPath>Libs\System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\..\..\Users\Administrator\source\repos\EBPOC\EBPOC.Web\Libs\System.Net.Http.Formatting.dll</HintPath>
+      <HintPath>Libs\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -80,13 +83,13 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http">
-      <HintPath>..\..\..\Users\Administrator\source\repos\EBPOC\EBPOC.Web\Libs\System.Web.Http.dll</HintPath>
+      <HintPath>Libs\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.Cors">
-      <HintPath>..\..\..\Users\Administrator\source\repos\EBPOC\EBPOC.Web\Libs\System.Web.Http.Cors.dll</HintPath>
+      <HintPath>Libs\System.Web.Http.Cors.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost">
-      <HintPath>..\..\..\Users\Administrator\source\repos\EBPOC\EBPOC.Web\Libs\System.Web.Http.WebHost.dll</HintPath>
+      <HintPath>Libs\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -244,8 +247,8 @@
     <Content Include="Views\SCContactProfiles\SCContactProfiles.cshtml" />
     <Content Include="Views\SCNavigations\Breadcrumbs.cshtml" />
     <Content Include="Views\SCNavigations\FooterNavigation.cshtml" />
-    <Content Include="Views\SCNavigations\SCNavigationBox.cshtml" />
     <Content Include="Views\SCNavigations\SCNavigationBoxList.cshtml" />
+    <Content Include="Views\SCNavigations\SCNavigationBox.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

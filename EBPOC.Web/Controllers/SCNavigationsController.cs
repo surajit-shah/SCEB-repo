@@ -104,10 +104,10 @@ namespace EBPOC.Web.Controllers
         public ActionResult SCNavigationBoxList()
         {
             List<SCNavigationBoxVM> navboxlist = new List<SCNavigationBoxVM>();
-            var navboxitem = Sitecore.Context.Database.GetItem("{85DEE9E5-DF7A-4D61-9D8C-5D9815086CF2}");
+            var navboxitem = Sitecore.Context.Database.GetItem("{63B72260-E5DE-4D6A-96F0-CA13AECE0693}");
             SCNavigationBoxVM navigationBoxVM = new SCNavigationBoxVM(navboxitem);
             List<SCNavigationVM> articles = new List<SCNavigationVM>();
-            MultilistField multilistField = Sitecore.Context.Database.GetItem("{85DEE9E5-DF7A-4D61-9D8C-5D9815086CF2}").Fields["NavigationList"];
+            MultilistField multilistField = Sitecore.Context.Database.GetItem("{66BE6F28-E8CF-49F8-83C4-3CFBC65EF4CB}").Fields["NavigationList"];
             if (multilistField != null)
             {
                 Item[] carouselItems = multilistField.GetItems();
