@@ -22,19 +22,21 @@
             var requestData = {
                 categoryId: $.trim(categoryId)
             };
-
-            debugger;
             $.ajax({
                 url: 'SCContactProfiles/GetContactProfileFields',
                 type: 'POST',
                 data: JSON.stringify(requestData),
-                dataType: 'json',
+                dataType: 'html',
                 contentType: 'application/json; charset=utf-8',
-                error: function (xhr) {
-                    alert('Error: ' + xhr.statusText);
+                success: function (data) {
+                    debugger;
+                    //var BookString = "Book Title: " + data.BookTitle + "\n" + "Book Author: " + data.BookAuthor + "\n" + "Book Language:" + data.BookLanguage;
+                    $("#dvContactFormSection").html(data);
+                    console.log("success", data);
                 },
-                success: function (result) {
-                    CheckIfInvoiceFound(result);
+                error: function (data) {
+                    debugger;
+                    console.log("error", data);
                 },
                 async: true,
                 processData: false

@@ -2,7 +2,7 @@
 @using Sitecore.Mvc.Presentation
 @using EBPOC.Web.Models
 
-@model List<SCProfileFieldVM>
+@model SCContactVM
 
 @*@model SCContactVM
 
@@ -19,36 +19,26 @@
     }*@
 
 <h3>Informations de la société</h3>
-@foreach (var field in Model)
+@foreach (var field in Model.ContactProfileFields)
 {
-    switch (field.FieldType)
-    {
-        case "LABEL":
-            <div class="form_field">
-                <label for="SocNom">Nom de la société</label>
+    <div class="form_field">
+        <label for="SocNom">@field.FieldLabel</label>
+        @switch (field.FieldType.ToUpper())
+        {
+            case "LABEL":
                 <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$SocNom" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_SocNom" class="input_small">
-            </div>
-            break;
-        case "DROPDOWNLIST":
-            <div class="form_field">
-                <label for="SocNom">Nom de la société</label>
+                break;
+            case "DROPDOWNLIST":
                 <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$SocNom" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_SocNom" class="input_small">
-            </div>
-            break;
-        case "TEXTBOX":
-            <div class="form_field">
-                <label for="SocNom">Nom de la société</label>
+                break;
+            case "TEXT":
                 <input name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$SocNom" type="text" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_SocNom" class="input_small">
-            </div>
-            break;
-        case "TEXTAREA":
-            <h3>Votre demande</h3>
-            <div class="form_field">
-                <label for="Dem">Inscrivez ici votre demande/question</label>
+                break;
+            case "TEXTAREA":
                 <textarea name="ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$Dem" id="ctl00_WPMMasterPage_g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd_ctl00_Dem" class="input_long" rows="5"></textarea>
-            </div>
-            break;
-    }
+                break;
+        }
+    </div>
 }
 
 @*<div class="form_field">

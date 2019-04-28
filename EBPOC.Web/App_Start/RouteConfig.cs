@@ -12,8 +12,8 @@ namespace EBPOC.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            RouteTable.Routes.MapRoute("SCContactProfiles", "GetContactProfileFields", "SCContactProfiles/GetContactProfileFields", new { Controller = "SCContactProfiles", Action = "GetContactProfileFields" });
-            RouteTable.Routes.MapRoute("SCSearch", "Search", "SCSearch/Search", new {Controller= "SCSearch", Action= "Search" });
+            RouteTable.Routes.MapRoute("SCContactProfiles", "SCContactProfiles/GetContactProfileFields", new { Controller = "SCContactProfiles", Action = "GetContactProfileFields" });
+            RouteTable.Routes.MapRoute("SCSearch", "SCSearch/Search", new { Controller = "SCSearch", Action = "Search" });
             //routes.MapRoute(
             //    name: "Default",
             //    url: "{controller}/{action}/{id}",

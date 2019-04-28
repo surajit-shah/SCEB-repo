@@ -37,7 +37,7 @@ namespace EBPOC.Web.Controllers
             //var model = this.GetFullAndPartialViewModel(lookupId);
 
             var contact = new SCContactVM();
-            List<SCContactProfileVM> contactProfiles = new List<SCContactProfileVM>();
+            List<SCProfileFieldVM> profileFields = new List<SCProfileFieldVM>();
             //MultilistField multilistField = Sitecore.Context.Database.GetItem("{E8AB9719-69BB-4912-9DA4-55C8995E0A7A}").Fields["Categories"];
             Item[] multilistField = SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/ContactProfiles/ProfileFields").Children.ToArray();
             if (multilistField != null)
@@ -47,11 +47,11 @@ namespace EBPOC.Web.Controllers
                 {
                     if (item != null)
                     {
-                        contactProfiles.Add(new SCContactProfileVM(item));
+                        profileFields.Add(new SCProfileFieldVM(item));
                     }
                 }
             }
-            contact.ContactProfiles = contactProfiles;
+            contact.ContactProfileFields = profileFields;
             return PartialView("SCContactForm", contact);
         }
         private List<SCProfileFieldVM> GetFullAndPartialViewModel(int categoryId = 0)

@@ -18,7 +18,7 @@
         public void Process(PipelineArgs args)
         {
             //Log.Info("Sitecore is starting", this);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }

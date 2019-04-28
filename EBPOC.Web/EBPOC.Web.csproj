@@ -158,6 +158,7 @@
     <Compile Include="Models\SimpleItemList.cs" />
     <Compile Include="Models\SiteConfiguration.cs" />
     <Compile Include="Pipelines\RegisterApiRoutes.cs" />
+    <Compile Include="Pipelines\SkipApiRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +167,7 @@
     </Content>
     <Content Include="App_Config\Include\Sitecore.ContentSearch.Solr.Index.Master.Products.config" />
     <Content Include="App_Config\Include\RegisterApiRoutes.config" />
+    <Content Include="App_Config\Include\SkipApiRoutes.config" />
     <None Include="packages.config" />
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\font-awesome.min.css" />
