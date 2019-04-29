@@ -1,11 +1,10 @@
 ﻿@using EBPOC.Web.Helpers
-@model EBPOC.Web.Models.SearchResults
+@using EBPOC.Web.Models
+@using Sitecore.Mvc.Common
+
+@model (SearchResults)ContextService.Get().GetCurrent<ViewContext>().ViewData["_SharedModel"]
 
 
-
-<!--Header for the page begins-->
-@Html.Sitecore().Placeholder("ArticlePage.Grid.Header")
-<!--Header for the page ends-->
 <div class="row" id="maincontent">
     <div class="col-md-9" id="firstContent">
 
@@ -53,6 +52,4 @@
         @Html.Sitecore().Placeholder("ArticlePage.Grid.Right")
     </div>
 </div>
-<!--Footer content starts-->
-@Html.Sitecore().Placeholder("ArticlePage.Grid.Footer")
-<!--Footer content ends-->
+
