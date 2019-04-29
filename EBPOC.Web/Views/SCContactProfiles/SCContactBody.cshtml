@@ -11,17 +11,21 @@
     <p>Si vous êtes déjà client, veuillez prendre contact avec votre conseiller habituel. &nbsp;</p>
 </div>
 <!--form starts-->
-<div class="form">
-    <div class="form_section">
-        <h3>Sélectionnez votre profil</h3>
-        @Html.Sitecore().Controller("SCContactProfiles", "SCContactProfiles")
+@using (Html.BeginRouteForm(Sitecore.Mvc.Configuration.MvcSettings.SitecoreRouteName, FormMethod.Post))
+{
+    @Html.Sitecore().FormHandler()
+    <div class="form">
+        <div class="form_section">
+            <h3>Sélectionnez votre profil</h3>
+            @Html.Sitecore().Controller("SCContactProfiles", "SCContactProfiles")
+        </div>
+        <div id="dvContactFormSection" class="form_section">
+        </div>
+        <div class="form_submit">
+            <button onclick="if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate(''); __doPostBack('ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$ctl27','')" class="button button_arrow">
+                <span class="submit-btn">Envoyer</span>
+            </button>
+        </div>
     </div>
-    <div id="dvContactFormSection" class="form_section">
-    </div>
-    <div class="form_submit">
-        <button onclick="if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate(''); __doPostBack('ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$ctl27','')" class="button button_arrow">
-            <span class="submit-btn">Envoyer</span>
-        </button>
-    </div>
-</div>
+}
 <!--form endss-->
