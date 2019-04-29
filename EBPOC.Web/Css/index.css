@@ -211,10 +211,16 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
 
 /* Add an active class to highlight the current page */
 .active {
+    color: white !important;
+}
+.active-menu {
     background-color: #03479c;
     color: white !important;
 }
-
+.carousel-img {
+    display: block;
+    margin: auto;
+}
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
     display: none;
@@ -236,6 +242,7 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
     background: #FFF url(../Images/bottom-gradient-small.gif) bottom repeat-x;
     margin-bottom: 20px;
     margin-top: 20px;
+    padding-top: 20px;
 }
 
 #home_bar {

@@ -251,6 +251,7 @@
     <Content Include="Views\SCNavigations\FooterNavigation.cshtml" />
     <Content Include="Views\SCNavigations\SCNavigationBoxList.cshtml" />
     <Content Include="Views\SCNavigations\SCNavigationBox.cshtml" />
+    <Content Include="Views\Shared\SCBlocks\SCVerticalContentHolder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

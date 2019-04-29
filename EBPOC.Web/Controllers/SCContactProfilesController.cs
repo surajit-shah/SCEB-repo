@@ -45,7 +45,7 @@ namespace EBPOC.Web.Controllers
                 //Item[] carouselItems = multilistField.GetItems();
                 foreach (Item item in multilistField)
                 {
-                    if (item != null)
+                    if ((item != null) && (item.Name.Contains(categoryId.Replace(" ",""))))
                     {
                         profileFields.Add(new SCProfileFieldVM(item));
                     }
@@ -54,11 +54,16 @@ namespace EBPOC.Web.Controllers
             contact.ContactProfileFields = profileFields;
             return PartialView("SCContactForm", contact);
         }
-        private List<SCProfileFieldVM> GetFullAndPartialViewModel(int categoryId = 0)
+        [HttpPost]
+        public ActionResult SCSubmitContactProfile(FormCollection form)
         {
-            var xxx = new List<SCProfileFieldVM>();
-            // populate the viewModel and return it
-            return xxx;
+            //if (ModelState.IsValid)
+            //{
+                // Save your new values
+                // Return view or redirect to another action
+            //}
+
+            return View();
         }
     }
 }

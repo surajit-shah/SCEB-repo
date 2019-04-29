@@ -2,12 +2,12 @@
 @using Sitecore.Mvc.Presentation
 @model RenderingModel
 @{
+                /**/
 
 }
 
 <div class="sidebarwrapper">
     @Html.Sitecore().Placeholder("Grid.PromotionList")
-    @Html.Sitecore().Placeholder("Grid.ContentList")
     <div id="ebi_flash_box">
         <a href="" title="EBI Flash">
             <br />
@@ -16,7 +16,8 @@
             <strong>What's new?</strong>
         </a>
     </div>
-    <div id="dail_box">
+    @Html.Sitecore().Placeholder("Grid.DialBox")
+    @*<div id="dail_box">
         <a href="" title="">
             <strong>
                 All benefits,
@@ -27,5 +28,5 @@
                 <br>no paper
             </strong>
         </a>
-    </div>
+    </div>*@
 </div>
