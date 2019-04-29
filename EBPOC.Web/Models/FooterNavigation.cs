@@ -12,7 +12,7 @@ namespace EBPOC.Web.Models
             : base(item) { }
         public string Title
         {
-            get { return InnerItem["Title"]; }
+            get { return InnerItem["Meta Title"]; }
         }
 
         public string FooterText

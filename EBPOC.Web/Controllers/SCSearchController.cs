@@ -7,7 +7,9 @@ using Sitecore.ContentSearch.SearchTypes;
 using Sitecore.Data.Items;
 using Sitecore.Links;
 using Sitecore.Mvc.Common;
+using Sitecore.Mvc.Configuration;
 using Sitecore.Mvc.Extensions;
+using Sitecore.Mvc.Presentation;
 using Sitecore.Search;
 using System;
 using System.Collections.Generic;
@@ -70,10 +72,23 @@ namespace EBPOC.Web.Controllers
         [HttpPost]
         public ActionResult Search(string searchStr, string[] facets)
         {
-            //return View(new SearchResults(searchStr, facets));
-            ContextService.Get().GetCurrent<ViewContext>().ViewData.Add("_SharedModel", new SearchResults(searchStr, facets));
-            var url = LinkManager.GetItemUrl(Sitecore.Context.Database.GetItem("{07F9D462-768E-4126-ADB0-AFB0C2567B98}"));
-            return Redirect(url);
+            //string DataSourceId = RenderingContext.Current.Rendering.DataSource;
+            //if (DataSourceId != null)
+            //{
+                Item item = Sitecore.Context.Database.GetItem(Sitecore.Data.ID.Parse("{07F9D462-768E-4126-ADB0-AFB0C2567B98}"));
+
+                var pathInfo = LinkManager.GetItemUrl(item, UrlOptions.DefaultOptions);
+
+               var route= RedirectToRoute(MvcSettings.SitecoreRouteName, new { pathInfo = pathInfo.TrimStart(new char[] { '/' }) });
+                return View(new SearchResults(searchStr, facets));
+            //}
+
+
+            //return null;
+            
+           // ContextService.Get().GetCurrent<ViewContext>().ViewData.Add("_SharedModel", new SearchResults(searchStr, facets));
+            //var url = LinkManager.GetItemUrl(Sitecore.Context.Database.GetItem("{07F9D462-768E-4126-ADB0-AFB0C2567B98}"));
+            //return Redirect(url);
         }
 
         public ActionResult Results()
