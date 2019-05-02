@@ -7,8 +7,7 @@
     <img src="images/visu-tools.jpg" style="visibility: hidden;" />
 </div>
 <div class="section">
-    <p>Vous avez une question concernant nos produits ou souhaitez obtenir une offre ? Contactez-nous sans plus attendre via le formulaire ci-dessous. Dès réception de la demande, nous prendrons contact avec la personne renseignée. </p>
-    <p>Si vous êtes déjà client, veuillez prendre contact avec votre conseiller habituel. &nbsp;</p>
+    @Html.Sitecore().Field("ArticleSummerys")
 </div>
 <!--form starts-->
 @using (Html.BeginRouteForm(Sitecore.Mvc.Configuration.MvcSettings.SitecoreRouteName, FormMethod.Post))

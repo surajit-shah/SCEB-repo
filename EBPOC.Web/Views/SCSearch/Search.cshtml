@@ -2,11 +2,96 @@
 @using EBPOC.Web.Models
 @using Sitecore.Mvc.Common
 
-@*@model (SearchResults)ContextService.Get().GetCurrent<ViewContext>().ViewData["_SharedModel"]*@
-@model SearchResults
+@*@model (SearchResults)ContextService.Get().GetCurrent<ViewContext>().ViewBag.SearchResult*@
+@*@model SearchResults*@
+@model RenderingModel
+@{
 
-<div class="row" id="maincontent">
-    <div class="col-md-9" id="firstContent">
+}
+
+<div class="col-md-9" id="searchContent">
+    <!--<nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>-->
+    <div class="container searchbox">
+        <div class="row">
+            <div class="col-md-1">&nbsp;</div>
+            <!-- Input Group -->
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control"
+                               placeholder="Search" id="inputGroup" />
+                        <span class="input-group-addon" style="cursor: pointer;" onclick="myFunction()">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="searchContainer">
+        <div class="searchResult raise">
+            <div class="wrapper">
+                <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i>&nbsp;&nbsp; search result link 1</a>
+                <div class="search-second">
+                    <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
+                    <p class="search-second-date"> Date : 01/01/1998 </p>
+                </div>
+                <div class="url-wrapper">
+                    <span class="url">https://www.corporate.axa.be/employeebenefits/fr/contact/pages/contact.aspx?cprofile=2 </span>
+                </div>
+
+            </div>
+        </div>
+        <div class="searchResult raise">
+            <div class="wrapper">
+                <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i>&nbsp;&nbsp; search result link 2</a>
+                <div class="search-second">
+                    <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
+                    <p class="search-second-date"> Date : 01/01/1998 </p>
+                </div>
+                <div class="url-wrapper">
+                    <span class="url">https://www.corporate.axa.be/employeebenefits/fr/contact/pages/contact.aspx?cprofile=2 </span>
+                </div>
+            </div>
+        </div>
+        <div class="searchResult raise">
+            <div class="wrapper">
+                <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i>&nbsp;&nbsp; search result link 3</a>
+                <div class="search-second">
+                    <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
+                    <p class="search-second-date"> Date : 01/01/1998 </p>
+                </div>
+                <div class="url-wrapper">
+                    <span class="url">https://www.corporate.axa.be/employeebenefits/fr/contact/pages/contact.aspx?cprofile=2 </span>
+                </div>
+            </div>
+        </div>
+        <div class="searchResult raise">
+            <div class="wrapper">
+                <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i>&nbsp;&nbsp; search result link4</a>
+                <div class="search-second">
+                    <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
+                    <p class="search-second-date"> Date : 01/01/1998 </p>
+                </div>
+                <div class="url-wrapper">
+                    <span class="url">https://www.corporate.axa.be/employeebenefits/fr/contact/pages/contact.aspx?cprofile=2 </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-container">
+        <button class="btn draw-border"> Load More </button>
+    </div>
+</div>
+@*<div class="col-md-9" id="firstContent">
 
         <div class="container">
             <div class="row">
@@ -38,18 +123,14 @@
                             <div>
                                 <p>@Model.SearchItemName</p>
                                 <p>@Model.SearchitemDescription</p>
-                                @*<p>@item.ID</p>*@
-                                @*<a href="@item.Url" class="float-left">@Html.Sitecore().Field("Meta Title", item.Item)</a>
-                                    <h3><a href="@item.Url">@Html.Sitecore().Field("Meta Description", item.Item)</a></h3>*@
                             </div>
                         }
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3">
+    </div>*@
+@*<div class="col-md-3">
         @Html.Sitecore().Placeholder("ArticlePage.Grid.Right")
-    </div>
-</div>
+    </div>*@
 

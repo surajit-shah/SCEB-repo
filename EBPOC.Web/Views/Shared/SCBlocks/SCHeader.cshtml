@@ -5,7 +5,7 @@
 
 }
 
-<div class="row" id="headerTop">
+<div id="headerTop">
     <div class="col-md-6 col-sm-12 leftlogo">
         <img src="../Images/logo.png" border="0" width="300" height="81">
     </div>
@@ -13,25 +13,14 @@
         <div id="rightimage">
             <img src="../Images/rightlogo.png" border="0" width="334" height="21">
         </div>
-        @*<ul id="lang">
-                <li class="selected">
-                    <a href=''>FR</a>
-                </li>
-                <li id="langLast">
-                    <a href=''>NL</a>
-                </li>
-            </ul>*@
-        @*SA vidya*@
         @Html.Sitecore().Controller("SCNavigations", "SCLanguageSwitcher")
-        @*EA vidya*@
     </div>
-
 </div>
 @Html.Sitecore().Placeholder("Header.Topmenu")
 <div id="hpnav">
     <div id="ctl00_PageHolder_HomePageNavHolder_HPLinks">
         <div id="ctl00_PageHolder_HomePageNavHolder_HPLinks_HPLinks1_upPanLinkListForm">
             @Html.Sitecore().Controller("SCNavigations", "Breadcrumbs")
-         </div>
+        </div>
     </div>
 </div>

@@ -75,20 +75,19 @@ namespace EBPOC.Web.Controllers
             //string DataSourceId = RenderingContext.Current.Rendering.DataSource;
             //if (DataSourceId != null)
             //{
-                Item item = Sitecore.Context.Database.GetItem(Sitecore.Data.ID.Parse("{07F9D462-768E-4126-ADB0-AFB0C2567B98}"));
+            Item item = Sitecore.Context.Database.GetItem(Sitecore.Data.ID.Parse("{07F9D462-768E-4126-ADB0-AFB0C2567B98}"));
 
-                var pathInfo = LinkManager.GetItemUrl(item, UrlOptions.DefaultOptions);
+            //var pathInfo = LinkManager.GetItemUrl(item, UrlOptions.DefaultOptions);
 
-               var route= RedirectToRoute(MvcSettings.SitecoreRouteName, new { pathInfo = pathInfo.TrimStart(new char[] { '/' }) });
-                return View(new SearchResults(searchStr, facets));
+            //var route = RedirectToRoute(MvcSettings.SitecoreRouteName, new { pathInfo = pathInfo.TrimStart(new char[] { '/' }) });
+            //return View(new SearchResults(searchStr, facets));
             //}
-
-
             //return null;
-            
-           // ContextService.Get().GetCurrent<ViewContext>().ViewData.Add("_SharedModel", new SearchResults(searchStr, facets));
-            //var url = LinkManager.GetItemUrl(Sitecore.Context.Database.GetItem("{07F9D462-768E-4126-ADB0-AFB0C2567B98}"));
-            //return Redirect(url);
+            // make product data accessible to all components that need it (more in Part 2)
+            this.ShareProductData(new SearchResults(searchStr, facets));
+            //ContextService.Get().GetCurrent<ViewContext>().ViewData.Add("_SharedModel", new SearchResults(searchStr, facets));
+            var url = LinkManager.GetItemUrl(Sitecore.Context.Database.GetItem("{1C9826B5-5C14-4DC2-9054-861D9C6C6F6B}"));
+            return Redirect(url);
         }
 
         public ActionResult Results()
@@ -100,7 +99,10 @@ namespace EBPOC.Web.Controllers
             return !items.IsNullOrEmpty() ? View("LinkList", results) : null;
 
         }
-
+        protected virtual void ShareProductData(SearchResults searchResult)
+        {
+            ViewBag.SearchResult = searchResult;
+        }
     }
 
 }

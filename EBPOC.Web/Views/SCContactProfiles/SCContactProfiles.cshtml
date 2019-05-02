@@ -7,6 +7,9 @@
 <div class="form_field">
     @Html.DropDownListFor(
         x => x.SelectedProfileId,
-        new SelectList(Model.ContactProfiles, "ContactProfileValue", "ContactProfileName"), new { id = "ddlContactProfile" }
-    )
+        new SelectList(Model.ContactProfiles, "ContactProfileValue", "ContactProfileName")
+        )
+    @*@Html.DropDownListFor("ddlContactProfile",
+            new SelectList(Model.ContactProfiles, "ContactProfileValue", "ContactProfileName"), new { @class =""  }
+        )*@
 </div>

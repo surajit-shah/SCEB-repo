@@ -8,42 +8,44 @@
 @Html.Sitecore().Placeholder("MainPage.Grid.Header")
 <!--Header for the page ends-->
 <!--Main content of the page-->
-<div class="row">
-    <div id="home_main">
-        <div class="container" id="home_top">
-            @Html.Sitecore().Placeholder("MainPage.Grid.Top")
-        </div>
-        <div id="home_bar">
-            <div id="home_ctas">
-                <div id="home_ctas_inner">
-                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td id="MSOZoneCell_WebPartWPQ7" valign="top" class="s4-wpcell-plain">
-                                    <table class="s4-wpTopTable" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                        <tbody>
-                                            <tr>
-                                                <td valign="top">
-                                                    <div webpartid="f399e873-ca71-44f4-9cb3-94a85a059447" haspers="false" id="WebPartWPQ7" width="100%" class="ms-WPBody" allowdelete="false" style="">
-                                                        <div class="ctawrapper">
-                                                            @Html.Sitecore().Placeholder("MainPage.Grid.PromotionList")
-                                                            @Html.Sitecore().Placeholder("MainPage.Grid.DialBox")
+<div class="container">
+    <div class="row">
+        <div id="home_main">
+            <div class="container" id="home_top">
+                @Html.Sitecore().Placeholder("MainPage.Grid.Top")
+            </div>
+            <div id="home_bar">
+                <div id="home_ctas">
+                    <div id="home_ctas_inner">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                                <tr>
+                                    <td id="MSOZoneCell_WebPartWPQ7" valign="top" class="s4-wpcell-plain">
+                                        <table class="s4-wpTopTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <div webpartid="f399e873-ca71-44f4-9cb3-94a85a059447" haspers="false" id="WebPartWPQ7" width="100%" class="ms-WPBody" allowdelete="false" style="">
+                                                            <div class="ctawrapper">
+                                                                @Html.Sitecore().Placeholder("MainPage.Grid.PromotionList")
+                                                                @Html.Sitecore().Placeholder("MainPage.Grid.DialBox")
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!--</div>-->
 </div>
-<!--</div>-->
 <!--Main content of the page ends-->
 <!--Footer begins-->
 @Html.Sitecore().Placeholder("MainPage.Grid.Footer")

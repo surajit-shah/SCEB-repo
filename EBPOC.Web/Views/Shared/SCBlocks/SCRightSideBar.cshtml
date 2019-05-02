@@ -8,25 +8,26 @@
 
 <div class="sidebarwrapper">
     @Html.Sitecore().Placeholder("Grid.PromotionList")
-    <div id="ebi_flash_box">
+    @*<div id="ebi_flash_box">
         <a href="" title="EBI Flash">
             <br />
             <strong>What's new?</strong>">EBI Flash
             <br>
             <strong>What's new?</strong>
         </a>
-    </div>
-    @Html.Sitecore().Placeholder("Grid.DialBox")
-    @*<div id="dail_box">
-        <a href="" title="">
-            <strong>
-                All benefits,
-                <br />no paper
-            </strong>">
-            <strong>
-                All benefits,
-                <br>no paper
-            </strong>
-        </a>
     </div>*@
+    @Html.Sitecore().Placeholder("Grid.ArticleBoxList")
+    @Html.Sitecore().Placeholder("Grid.DialBoxList")
+    @*<div id="dail_box">
+            <a href="" title="">
+                <strong>
+                    All benefits,
+                    <br />no paper
+                </strong>">
+                <strong>
+                    All benefits,
+                    <br>no paper
+                </strong>
+            </a>
+        </div>*@
 </div>

@@ -15,8 +15,8 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function () {
-        $("#ddlContactProfile").change(function () {
-            var categoryId = $("#ddlContactProfile").val();
+        $("#SelectedProfileId").change(function () {
+            var categoryId = $("#SelectedProfileId").val();
             @*$("#dvContactFormSection").load('@(Url.Action("GetContactProfileFields","SCContactProfiles",null, Request.Url.Scheme))?categoryId=' + categoryId);*@
 
             var requestData = {
@@ -55,7 +55,7 @@
     @*@Html.Sitecore().VisitorIdentification()*@
 </head>
 <body>
-    <div class="container">
+    <div>
         @Html.Sitecore().Placeholder("ArticlePage.Grid")
     </div>
 </body>

@@ -213,10 +213,12 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
 .active {
     color: white !important;
 }
+
 .active-menu {
     background-color: #03479c;
     color: white !important;
 }
+
 .carousel-img {
     display: block;
     margin: auto;
@@ -277,8 +279,7 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
     border-left: 0;
 }
 
-#home_ctas .cta {
-    /*width: 177.5px;*/
+/*#home_ctas .cta {
     background-image: linear-gradient(white, #dddddd);
     float: left;
     margin: 0;
@@ -287,6 +288,22 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
     border-left: 1px solid #D8D8D8;
     border-right: 1px solid #F2F2F2;
 }
+*/
+#home_ctas .cta {
+    background-color: #e4e1e1;
+    float: left;
+    margin: 0 3px;
+    padding: 5px 20px 20px;
+    border-bottom: 0;
+    border-left: 1px solid #D8D8D8;
+    border-right: 1px solid #F2F2F2;
+    border-style: inset;
+}
+
+    #home_ctas .cta:hover {
+        border: 3px inset #9F908F;
+        background-color: #FFF;
+    }
 
 .ctawrapper {
     display: grid;
@@ -353,8 +370,8 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
 .cta p {
     margin: 0px;
     padding: 0px;
-    font-size: 1.5em;
-    line-height: 1.3em;
+    font-size: 2em;
+    line-height: 1.5em;
 }
 
 #home_bar #dail_box {
@@ -431,14 +448,14 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
     margin: 0;
     padding: 0;
     color: #666;
-    font-size: 1.7em;
+    font-size: 2em;
 }
 
 .footer_li_2 a {
     margin: 0;
     padding: 0;
     color: #666;
-    font-size: 1.7em;
+    font-size: 2em;
 }
 
 .footer_ul_copyright {

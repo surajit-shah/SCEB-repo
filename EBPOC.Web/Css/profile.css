@@ -621,14 +621,14 @@ select, input {
     margin: 0;
     padding: 0;
     color: #666;
-    font-size: 1.7em;
+    font-size: 2em;
 }
 
 .footer_li_2 a {
     margin: 0;
     padding: 0;
     color: #666;
-    font-size: 1.7em;
+    font-size: 2em;
 }
 
 .footer_ul_copyright {
@@ -823,16 +823,29 @@ select, input {
     border-left: 0;
 }
 
-.sidebarwrapper .cta {
-    /*width: 177.5px;*/
+/*.sidebarwrapper .cta {
     background: white;
     float: left;
     margin: 0;
-    /*padding: 5px 20px 20px;*/
     border-bottom: 1px solid #b5b5b5;
     border-left: 1px solid #D8D8D8;
     border-right: 1px solid #F2F2F2;
+}*/
+.sidebarwrapper .cta {
+    background-color: #e4e1e1;
+    float: left;
+    margin: 0 3px;
+    padding: 5px 20px 20px;
+    border-bottom: 0;
+    border-left: 1px solid #D8D8D8;
+    border-right: 1px solid #F2F2F2;
+    border-style: inset;
 }
+
+    .sidebarwrapper .cta:hover {
+        border: 3px inset #9F908F;
+        background-color: #FFF;
+    }
 
 .sidebarwrapper {
     display: grid;
@@ -899,8 +912,8 @@ select, input {
 .cta p {
     margin: 0px;
     padding: 0px;
-    font-size: 1.8em;
-    line-height: 1.3em;
+    font-size: 2em;
+    line-height: 1.5em;
 }
 
 #ebi_flash_box {
@@ -954,3 +967,265 @@ select, input {
     font-weight: 600;
     letter-spacing: 1px;
 }
+/* search css started */
+
+.searchbox {
+    margin-top: 25px !important;
+}
+
+#search {
+    margin: 0;
+    float: right;
+    padding: 8px 10px 0 0;
+    width: 220px;
+}
+
+    #search input.text {
+        width: 170px;
+        height: 22px;
+        background: url(images/search-input.gif);
+        padding-left: 10px;
+        border: 0;
+        color: #808080;
+        font-size: 1.2em;
+    }
+
+input.searchInputFR, input.searchInputNL, input.searchInputEN {
+    /*background: url(images/search-input.gif) repeat scroll 0 0 transparent;*/
+    border: 0 none;
+    color: #808080;
+    font-size: 1.5em;
+    height: 22px;
+    margin: 0;
+    padding: 0 0 0 10px;
+    width: 170px;
+}
+
+#search input {
+    margin: 0;
+    padding: 0;
+    display: block;
+    float: left;
+    padding-left: 10px;
+    border-radius: 10px 0 0 10px;
+    border-top: 1px solid;
+    outline: none !important;
+}
+
+#search .searchFR, #search .searchNL, #search .searchEN {
+    float: left;
+    height: 27px;
+    padding-top: 4px;
+    position: relative;
+    width: 208px;
+}
+
+.searchInputFR, searchInputNL, searchInputEN {
+    border: medium none;
+    font-family: Tahoma;
+    font-size: 8pt;
+}
+
+.magSubmit {
+    background: url(images/search-submit.gif) no-repeat scroll left center transparent;
+    height: 22px;
+    width: 40px;
+    float: right;
+}
+
+.searchResult {
+    height: 15vh;
+    border-bottom: thin solid #775555;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 10px 10px 10px;
+}
+
+.search-second {
+    margin-left: 30px;
+}
+
+.search-second-1 {
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.search-second-date {
+    font-size: 0.8em;
+}
+
+p {
+    margin: 0 0 5px;
+}
+
+.draw-border {
+    box-shadow: inset 0 0 0 4px #58afd1;
+    color: #58afd1;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+}
+
+    .draw-border::before, .draw-border::after {
+        border: 0 solid transparent;
+        box-sizing: border-box;
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+        height: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .draw-border::before {
+        border-bottom-width: 4px;
+        border-left-width: 4px;
+    }
+
+    .draw-border::after {
+        border-top-width: 4px;
+        border-right-width: 4px;
+    }
+
+    .draw-border:hover {
+        color: black;
+    }
+
+        .draw-border:hover::before, .draw-border:hover::after {
+            border-color: #ffe593;
+            transition: border-color 0s, width 0.25s, height 0.25s;
+            width: 100%;
+            height: 100%;
+        }
+
+        .draw-border:hover::before {
+            transition-delay: 0s, 0s, 0.25s;
+        }
+
+        .draw-border:hover::after {
+            transition-delay: 0s, 0.25s, 0s;
+        }
+
+.btn {
+    background: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+    font: 700 1.2rem 'Roboto Slab', sans-serif;
+    padding: 1em 2em;
+    letter-spacing: 0.05rem;
+}
+
+    .btn:focus {
+        outline: 2px dotted #55d7dc;
+    }
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+
+.wrapper {
+    /*margin: 2em;*/
+    margin: 1em 1em 1em 3em;
+    font-size: 3em;
+}
+
+    .wrapper a, a:visited, a:hover, a:active {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        position: relative;
+        transition: 0.5s color ease;
+        text-decoration: none;
+        color: #0263e0;
+    }
+
+        .wrapper a:hover {
+            color: #c10000;
+        }
+
+a.before:before, a.after:after {
+    content: "";
+    transition: 0.5s all ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+a.before:before {
+    top: -0.25em;
+}
+
+a.after:after {
+    bottom: -0.25em;
+}
+
+a.before:before, a.after:after {
+    height: 3px;
+    height: 0.2rem;
+    width: 0;
+    background: #3c1aec;
+}
+
+a.before:hover:before, a.after:hover:after {
+    width: 100%;
+}
+
+a.third:after {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.raise {
+    --color: #ef6eae;
+    --hover: #a5a2a0;
+}
+
+    .raise:hover,
+    .raise:focus {
+        -webkit-animation: raise 1s;
+        animation: raise 1s;
+        box-shadow: 0 0 0 1.3em rgba(255, 255, 255, 0);
+        background: #ececec;
+    }
+
+@-webkit-keyframes raise {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover);
+    }
+}
+
+@keyframes raise {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover);
+    }
+}
+
+.search-url {
+    word-wrap: break-word;
+    width: 200px;
+    margin-left: 10px;
+}
+
+.icon {
+    color: black
+}
+
+.url {
+    font-size: 0.8em;
+    margin-left: 30px;
+    color: green;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+}
+
+.url-wrapper {
+    width: 60vh;
+}
+/* search css started */

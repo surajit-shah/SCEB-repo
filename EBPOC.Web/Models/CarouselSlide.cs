@@ -1,5 +1,7 @@
-﻿using Sitecore.Data.Items;
+﻿using Sitecore;
+using Sitecore.Data.Items;
 using Sitecore.Links;
+using Sitecore.Resources.Media;
 using Sitecore.Web.UI.WebControls;
 using System;
 using System.Collections.Generic;
@@ -19,12 +21,29 @@ namespace EBPOC.Web.Models
             get { return InnerItem["CarouselTitle"]; }
         }
 
-        public HtmlString Image
+        public string Image
         {
+            //get
+            //{
+            //    return new HtmlString(FieldRenderer.Render(InnerItem, "CarouselImage"));
+            //}
             get
             {
-                return new HtmlString(FieldRenderer.Render(InnerItem, "CarouselImage"));
+                return GetImageUrl();
             }
+        }
+        private string GetImageUrl()
+        {
+            var currentItem = Sitecore.Context.Item;
+            var imageUrl = string.Empty;
+
+            Sitecore.Data.Fields.ImageField imageField = InnerItem.Fields["CarouselImage"];
+            if (imageField?.MediaItem != null)
+            {
+                var image = new MediaItem(imageField.MediaItem);
+                imageUrl = StringUtil.EnsurePrefix('/', MediaManager.GetMediaUrl(image));
+            }
+            return imageUrl;
         }
 
         public string Url

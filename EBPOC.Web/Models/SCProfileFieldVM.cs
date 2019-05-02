@@ -11,14 +11,50 @@ namespace EBPOC.Web.Models
         public SCProfileFieldVM(Item item)
           : base(item) { }
 
-        public string FieldID { get { return InnerItem["FieldID"]; } }
-        public string FieldTitle { get { return InnerItem["FieldTitle"]; } }
-        public string FieldLabel { get { return InnerItem["FieldLabel"]; } }
-        public string FieldType { get { return InnerItem["FieldType"]; } }
-        public string FieldName { get { return InnerItem["FieldName"]; } }
-        public string FieldRequired { get { return InnerItem["FieldRequired"]; } }
-        public string FieldValues { get { return InnerItem["FieldValues"]; } }
-        public string FieldOrder { get { return InnerItem["FieldOrder"]; } }
-        public string FieldProfile { get { return InnerItem["FieldProfile"]; } }
+        public string FieldID
+        {
+            get { return InnerItem["FieldID"]; }
+            set { InnerItem["FieldID"] = value; }
+        }
+        public string FieldTitle
+        {
+            get { return InnerItem["FieldTitle"]; }
+            set { InnerItem["FieldTitle"] = value; }
+        }
+        public string FieldLabel
+        {
+            get { return InnerItem["FieldLabel"]; }
+            set { InnerItem["FieldLabel"] = value; }
+        }
+        public string FieldType
+        {
+            get { return InnerItem["FieldType"]; }
+            set { InnerItem["FieldType"] = value; }
+        }
+        public string FieldName
+        {
+            get { return InnerItem["FieldName"]; }
+            set { InnerItem["FieldName"] = value; }
+        }
+        public string FieldRequired
+        {
+            get { return InnerItem["FieldRequired"]; }
+            set { InnerItem["FieldRequired"] = value; }
+        }
+        public string FieldValues
+        {
+            get { return InnerItem["FieldValues"]; }
+            set { InnerItem["FieldValues"] = value; }
+        }
+        public string FieldOrder
+        {
+            get { return InnerItem["FieldOrder"]; }
+            set { InnerItem["FieldOrder"] = value; }
+        }
+        public string FieldProfile
+        {
+            get { return InnerItem["FieldProfile"]; }
+            set { InnerItem["FieldProfile"] = value; }
+        }
     }
 }
