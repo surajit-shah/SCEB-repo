@@ -46,12 +46,12 @@ ul#lang {
 }
 
     #lang li a {
-        font-size: 2.3em;
+        font-size: 3em;
         line-height: 1em;
+        color: #755359 !important;
         padding-right: 10px;
         border-right: 1px solid #666;
         margin-right: 10px;
-        color: #666;
     }
 
         #lang li a:hover {
@@ -156,12 +156,15 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
         padding-left: 12px;
         background: url(../Images/bullet.gif) 0px 18px no-repeat;
         padding-right: 12px;
+        color: #666;
+        font-size: 1.7em;
+        font-weight: bold;
     }
 
         #hpnav li a {
-            font-size: 1.3em;
-            /* line-height: 1em; */
             color: #666;
+            font-size: 1.7em;
+            font-weight: bold;
         }
 
 #headerTop {
@@ -200,7 +203,7 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
         text-align: center;
         padding: 11px 13px;
         text-decoration: none;
-        font-size: 15px;
+        font-size: 18px;
     }
 
         /* Change the color of links on hover */

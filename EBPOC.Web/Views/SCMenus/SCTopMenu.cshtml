@@ -14,9 +14,17 @@
         {
             if (@item["Show in Menu"] == "1")
             {
-                <a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">
-                    @item.Fields["Meta Title"].Value
-                </a>
+                if (@item.Fields["Meta Title"].Value == Model.Item.DisplayName)
+                {
+                    <a class="active-menu" href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">
+                        @item.Fields["Meta Title"].Value
+                    </a>}
+                else
+                {
+                    <a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">
+                        @item.Fields["Meta Title"].Value
+                    </a>
+                }
             }
         }
         @Html.Sitecore().Placeholder("Topmenu.Search")

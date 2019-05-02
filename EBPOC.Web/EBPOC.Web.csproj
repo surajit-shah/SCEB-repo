@@ -209,6 +209,7 @@
     <Content Include="Images\search-input.gif" />
     <Content Include="Images\search-submit.gif" />
     <Content Include="Images\visu-tools.jpg" />
+    <Content Include="Images\visu_salaries.jpg" />
     <Content Include="Libs\Newtonsoft.Json.dll" />
     <Content Include="Libs\Sitecore.ContentSearch.dll" />
     <Content Include="Libs\Sitecore.ContentSearch.Linq.dll" />
@@ -251,6 +252,7 @@
     <Content Include="Views\SCNavigations\FooterNavigation.cshtml" />
     <Content Include="Views\SCNavigations\SCNavigationBoxList.cshtml" />
     <Content Include="Views\SCNavigations\SCNavigationBox.cshtml" />
+    <Content Include="Views\Shared\SCPageBody\SCSuccess.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

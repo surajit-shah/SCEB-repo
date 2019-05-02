@@ -4,11 +4,11 @@
 @{
 
 }
-<div id="firscontent">
-    @Html.Sitecore().Field("ArticleHeaders")
+<div id="image">
+    <img src="images/visu_salaries.jpg" style="visibility: hidden;" />
 </div>
 <div id="secondcontent">
-    <h2>@Html.Sitecore().Field("ArticleSummery")</h2>
+    @Html.Sitecore().Field("ArticleSummery")
 </div>
 <div id="thirdContent">
     @Html.Sitecore().Placeholder("EmployeeBody.NavBoxList")

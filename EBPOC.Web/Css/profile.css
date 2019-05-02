@@ -46,12 +46,12 @@ ul#lang {
 }
 
     #lang li a {
-        font-size: 2.3em;
+        font-size: 3em;
         line-height: 1em;
+        color: #755359 !important;
         padding-right: 10px;
         border-right: 1px solid #666;
         margin-right: 10px;
-        color: #666;
     }
 
         #lang li a:hover {
@@ -160,9 +160,9 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
     }
 
         #hpnav li a {
-            font-size: 1.3em;
-            /* line-height: 1em; */
             color: #666;
+            font-size: 1.7em;
+            font-weight: bold;
         }
 
 #headerTop {
@@ -201,7 +201,7 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
         text-align: center;
         padding: 11px 13px;
         text-decoration: none;
-        font-size: 15px;
+        font-size: 18px;
     }
 
         /* Change the color of links on hover */
@@ -212,6 +212,10 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
 
 /* Add an active class to highlight the current page */
 .active {
+    color: white !important;
+}
+
+.active-menu {
     background-color: #03479c;
     color: white !important;
 }
@@ -299,6 +303,12 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
         width: 166px;
     }
 }
+
+@media (min-width:1500px) {
+    #ebi_flash_box, #dail_box {
+        height: 160px !important;
+    }
+}
 /*header style ends*/
 
 /*main content styles*/
@@ -373,10 +383,11 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
         height: 20px;
         width: 350px;
         border: 1px solid #E3E3E3;
-        border-top: 1px solid #717171;
-        color: #808080;
-        font-size: 1.2em;
+        border: 1px solid #717171;
+        color: #000000;
+        font-size: 2.2em;
         padding-left: 3px;
+        border-radius: 3px;
     }
 
     .form_section .form_field {
@@ -394,7 +405,7 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
 
 select, input {
     font-size: 2.2em;
-    font-weight: 600;
+    /*font-weight: 600;*/
     letter-spacing: 1px;
     font-family: "Helvetica", "Arial", sans-serif;
     outline: none;
@@ -568,10 +579,10 @@ select, input {
             letter-spacing: -1px;
         }
 
-#dail_box {
+/*#dail_box {
     background: url(../Images/bg-dail-box.gif) no-repeat;
     background-size: 100%;
-}
+}*/
 
 #ebi_flash_box, #dail_box {
     margin: 0px;
@@ -584,6 +595,8 @@ select, input {
     margin: 0;
     padding: 0;
     width: 400px;
+    font-size: 2.2em;
+    border-radius: 7px;
 }
 /*footer style begins*/
 #footern {
@@ -763,7 +776,7 @@ select, input {
     text-align: left;
     margin: 0;
     padding: 0;
-    background: url(.images/side-rounded-top.gif) top no-repeat;
+    background: url(../Images/side-rounded-top.gif) top no-repeat;
     min-height: 66px;
     padding: 25px;
 }
@@ -940,12 +953,14 @@ select, input {
         line-height: 1em;
         font-family: "ITCFranklinGothicBookRegular", "Trebuchet MS", sans-serif;
         letter-spacing: -1px;
+        float: right;
+        margin-right: 5px;
     }
 
         #ebi_flash_box a strong, #dail_box a strong {
             margin: 0px;
             padding: 0px;
-            font-weight: normal;
+            font-weight: bold;
             font-family: "ITCFranklinGothicDemiRegular", "Trebuchet MS", sans-serif;
             letter-spacing: -1px;
         }
@@ -983,7 +998,7 @@ select, input {
     #search input.text {
         width: 170px;
         height: 22px;
-        background: url(images/search-input.gif);
+        background: url(../Images/search-input.gif);
         padding-left: 10px;
         border: 0;
         color: #808080;
@@ -991,7 +1006,7 @@ select, input {
     }
 
 input.searchInputFR, input.searchInputNL, input.searchInputEN {
-    /*background: url(images/search-input.gif) repeat scroll 0 0 transparent;*/
+    /*background: url(../Images/search-input.gif) repeat scroll 0 0 transparent;*/
     border: 0 none;
     color: #808080;
     font-size: 1.5em;
@@ -1027,7 +1042,7 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
 }
 
 .magSubmit {
-    background: url(images/search-submit.gif) no-repeat scroll left center transparent;
+    background: url(../Images/search-submit.gif) no-repeat scroll left center transparent;
     height: 22px;
     width: 40px;
     float: right;
@@ -1229,3 +1244,19 @@ a.third:after {
     width: 60vh;
 }
 /* search css started */
+.submit-btn {
+    background-color: #7474a9;
+    color: white;
+    width: 150px;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 7px;
+}
+
+    .submit-btn:hover {
+        background-color: white;
+        color: #7474a9;
+        width: 150px;
+        height: 40px;
+        font-weight: bold;
+    }

@@ -8,12 +8,14 @@
 <!--Header for the page begins-->
 @Html.Sitecore().Placeholder("ArticlePage.Grid.Header")
 <!--Header for the page ends-->
-<div class="row" id="maincontent">
-    <div class="col-md-9" id="firstContent">
-        @Html.Sitecore().Placeholder("ArticlePage.Grid.Left")
-    </div>
-    <div class="col-md-3">
-        @Html.Sitecore().Placeholder("ArticlePage.Grid.Right")
+<div style="display:table;">
+    <div id="maincontent">
+        <div class="col-md-9" id="firstContent">
+            @Html.Sitecore().Placeholder("ArticlePage.Grid.Left")
+        </div>
+        <div class="col-md-3">
+            @Html.Sitecore().Placeholder("ArticlePage.Grid.Right")
+        </div>
     </div>
 </div>
 <!--Footer content starts-->

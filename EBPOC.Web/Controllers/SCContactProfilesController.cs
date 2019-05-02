@@ -2,6 +2,7 @@
 using EBPOC.Web.Models;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
+using Sitecore.Links;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,7 +79,10 @@ namespace EBPOC.Web.Controllers
 
             CreateProfileData(selectedProfile.Replace(" ", ""), profileDataList);
 
-            return View();
+            //return View();
+
+            var url = LinkManager.GetItemUrl(Sitecore.Context.Database.GetItem("{BDDFF05D-F7E8-468C-8A57-6933A9CD94FC}"));
+            return Redirect(url);
         }
         private void CreateProfileData(string profile, List<KeyValuePair<string, string>> profileDataList)
         {

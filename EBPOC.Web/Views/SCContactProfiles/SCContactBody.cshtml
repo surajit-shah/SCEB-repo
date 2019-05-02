@@ -7,7 +7,7 @@
     <img src="images/visu-tools.jpg" style="visibility: hidden;" />
 </div>
 <div class="section">
-    @Html.Sitecore().Field("ArticleSummerys")
+    @Html.Sitecore().Field("ArticleSummery")
 </div>
 <!--form starts-->
 @using (Html.BeginRouteForm(Sitecore.Mvc.Configuration.MvcSettings.SitecoreRouteName, FormMethod.Post))
@@ -24,7 +24,7 @@
             @*<button onclick="if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate(''); __doPostBack('ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$ctl27','')" class="button button_arrow">
                     <span class="submit-btn">Envoyer</span>
                 </button>*@
-            <input type="submit" value="Envoyer" />
+            <input type="submit" class="submit-btn" value="Envoyer" />
         </div>
     </div>
 }
