@@ -160,6 +160,7 @@
     <Compile Include="Pipelines\RegisterApiRoutes.cs" />
     <Compile Include="Pipelines\SkipApiRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sitecore\Data\Collections.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\z.Example\Sites.config">

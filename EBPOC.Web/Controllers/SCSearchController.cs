@@ -4,6 +4,7 @@ using EBPOC.Web.Models;
 using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.Linq;
 using Sitecore.ContentSearch.SearchTypes;
+using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
 using Sitecore.Links;
 using Sitecore.Mvc.Common;
@@ -102,6 +103,92 @@ namespace EBPOC.Web.Controllers
         protected virtual void ShareProductData(SearchResults searchResult)
         {
             ViewBag.SearchResult = searchResult;
+            SaveSearchResults(searchResult);
+        }
+        private void SaveSearchResults(SearchResults searchResult)
+        {
+
+            using (new Sitecore.SecurityModel.SecurityDisabler())
+            {
+                // Get the master database
+                Sitecore.Data.Database master = Sitecore.Data.Database.GetDatabase("master");
+                // Get the template for which you need to create item
+                TemplateItem searchItemTemplate = master.GetItem("/sitecore/templates/SCEBTemplates/Forms/SearchResultData");
+                TemplateItem resultItemtemplate = master.GetItem("/sitecore/templates/SCEBTemplates/Forms/ResultItem");
+
+                // Get the place in the site tree where the new item must be inserted
+                Item searchItemDataFolder = master.GetItem("{0508A62A-7B83-492D-A21E-F1B6580E26D1}");
+                Item searchItemFolder = master.GetItem("{4D5319C6-B7E1-4137-8AC0-EB92637A594D}");
+                Item resultItemFolder = master.GetItem("{28304EE5-F79B-4FB6-AE45-9926A63AC41D}");
+                Item searchItem = null;
+                Item resultItem = null;
+                try
+                {
+
+                    searchItemFolder.Editing.BeginEdit();
+                    searchItemFolder.DeleteChildren();
+                    searchItemFolder.Editing.EndEdit();
+                    resultItemFolder.Editing.BeginEdit();
+                    resultItemFolder.DeleteChildren();
+                    resultItemFolder.Editing.EndEdit();
+                    //searchItemDataFolder.Editing.BeginEdit();
+                    // Add the item to the site tree
+                    searchItem = searchItemFolder.Add("SearchItemData", searchItemTemplate);
+                    //MultilistField mlf = new MultilistField(newItem.Fields["ResultItems"]);
+                    //string resultItems = string.Empty;
+                    if (searchResult.Results != null)
+                    {
+                        searchItem.Editing.BeginEdit();
+                        searchItemFolder.DeleteChildren();
+                        //newItem.Fields["ResultItems"].Value = resultItem;
+                        searchItem.Fields["SearchString"].Value = searchResult.SearchString;
+                        searchItem.Fields["SearchItemName"].Value = searchResult.SearchItemName;
+                        searchItem.Fields["SearchitemDescription"].Value = searchResult.SearchitemDescription;
+                        searchItemFolder.Editing.EndEdit();
+                        foreach (var result in searchResult.Results)
+                        {
+                            // Add the item to the site tree;
+                            resultItem = resultItemFolder.Add("ResultItemData", resultItemtemplate);
+                            resultItem.Editing.BeginEdit();
+                            resultItem.DeleteChildren();
+                            resultItem.Fields["Description"].Value =searchResult.SearchitemDescription;
+                            resultItem.Fields["Name"].Value = result.Name;
+                            resultItem.Fields["Title"].Value = result.Title;
+                            resultItem.Fields["Url"].Value = result.Url;
+                            resultItem.Fields["MediaUrl"].Value = searchResult.searchItemUrl;
+                            resultItem.Editing.EndEdit();
+                        }
+                    }
+                    else
+                    {
+                        resultItem.Editing.BeginEdit();
+                        resultItem.DeleteChildren();
+                        resultItem.Fields["Title"].Value = searchResult.SearchString;
+                        resultItem.Fields["Name"].Value = searchResult.SearchItemName;
+                        resultItem.Fields["Description"].Value = searchResult.SearchitemDescription;
+                        resultItem.Editing.EndEdit();
+
+
+                    }
+                    // End editing will write the new values back to the Sitecore
+                    // database (It's like commit transaction of a database)
+                    //searchItemDataFolder.Editing.EndEdit();
+                }
+                //}
+
+
+                catch (System.Exception ex)
+                {
+                    // Log the message on any failure to sitecore log
+                    Sitecore.Diagnostics.Log.Error("Could not update item " + searchItemDataFolder.Paths.FullPath + ": " + ex.Message, this);
+
+                    // Cancel the edit (not really needed, as Sitecore automatically aborts
+                    // the transaction on exceptions, but it wont hurt your code)
+                    //searchItemDataFolder.Editing.CancelEdit();
+                    searchItem.Editing.CancelEdit();
+                    resultItem.Editing.CancelEdit();
+                }
+            }
         }
     }
 

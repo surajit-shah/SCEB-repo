@@ -1,12 +1,37 @@
 ﻿@using EBPOC.Web.Helpers
 @using EBPOC.Web.Models
 @using Sitecore.Mvc.Common
+@using Sitecore.Data.Items;
 
-@*@model (SearchResults)ContextService.Get().GetCurrent<ViewContext>().ViewBag.SearchResult*@
-@*@model SearchResults*@
 @model RenderingModel
 @{
-    SearchResults searchResults = (SearchResults)ViewBag.SearchResult
+    //SearchResults searchResults = new SearchResults();
+    List<ResultItems> resultItems = new List<ResultItems>();
+    bool isSearchResultavailable = false;
+    Item[] items = Sitecore.Configuration.Factory.GetDatabase("master").GetItem("{28304EE5-F79B-4FB6-AE45-9926A63AC41D}").Children.ToArray();/*GetItem("/sitecore/content/EmployeeBenefits/SearchResltData/ResultItemData").Children.ToArray();*/
+    if (items != null)
+    {
+        var resultItem = new ResultItems();
+        //Item[] carouselItems = multilistField.GetItems();
+        foreach (Item item in items)
+        {
+            if (item != null)
+            {
+                isSearchResultavailable = true;
+                resultItem.Name = item.Fields["Name"].Value;
+                resultItem.Title = item.Fields["Title"].Value;
+                resultItem.Description = item.Fields["Description"].Value;
+                resultItems.Add(resultItem);
+            }
+
+        }
+    }
+    else
+    {
+
+        isSearchResultavailable = false;
+    }
+}
 }
 
 <div class="col-md-9" id="searchContent">
@@ -21,7 +46,7 @@
     </nav>-->
     <div class="container searchbox">
         <div class="row">
-            <div class="col-md-1">@searchResults.SearchItemName</div>
+            <div class="col-md-1">&nbsp;</div>
             <!-- Input Group -->
             <div class="col-lg-6">
                 <div class="form-group">
@@ -37,55 +62,44 @@
         </div>
     </div>
     <div class="searchContainer">
-        <div class="searchResult raise">
-            <div class="wrapper">
-                <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i>&nbsp;&nbsp; search result link 1</a>
-                <div class="search-second">
-                    <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
-                    <p class="search-second-date"> Date : 01/01/1998 </p>
+        @if (isSearchResultavailable)
+        {
+            foreach (var resultItem in @resultItems)
+            {
+                <div class="searchResult raise">
+                    <div class="wrapper">
+                        <a class="third after" href="@resultItem.Url"><i class="fa fa-link icon" aria-hidden="true"></i>@resultItem.Name</a>
+                        <div class="search-second">
+                            <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
+                            <p class="search-second-date">@resultItem.Description </p>
+                        </div>
+                        <div class="url-wrapper">
+                            <a title="@resultItem.Name" href="@resultItem.MediaUrl" target="_blank">@resultItem.Name</a>
+                            @*<span class="url">@resultItem.Name</span>*@
+                        </div>
+
+                    </div>
                 </div>
-                <div class="url-wrapper">
-                    <span class="url">https://www.corporate.axa.be/employeebenefits/fr/contact/pages/contact.aspx?cprofile=2 </span>
+            }
+        }
+        else
+        {
+            <div class="searchResult raise">
+
+                <div class="wrapper">
+                    <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i></a>
+                    <div class="search-second">
+                        @*<p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>*@
+                        <p class="search-second-date">Sorry!! No results Found </p>
+                    </div>
+                    <div class="url-wrapper">
+                        <span class="url"></span>
+                    </div>
+
                 </div>
 
             </div>
-        </div>
-        <div class="searchResult raise">
-            <div class="wrapper">
-                <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i>&nbsp;&nbsp; search result link 2</a>
-                <div class="search-second">
-                    <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
-                    <p class="search-second-date"> Date : 01/01/1998 </p>
-                </div>
-                <div class="url-wrapper">
-                    <span class="url">https://www.corporate.axa.be/employeebenefits/fr/contact/pages/contact.aspx?cprofile=2 </span>
-                </div>
-            </div>
-        </div>
-        <div class="searchResult raise">
-            <div class="wrapper">
-                <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i>&nbsp;&nbsp; search result link 3</a>
-                <div class="search-second">
-                    <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
-                    <p class="search-second-date"> Date : 01/01/1998 </p>
-                </div>
-                <div class="url-wrapper">
-                    <span class="url">https://www.corporate.axa.be/employeebenefits/fr/contact/pages/contact.aspx?cprofile=2 </span>
-                </div>
-            </div>
-        </div>
-        <div class="searchResult raise">
-            <div class="wrapper">
-                <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i>&nbsp;&nbsp; search result link4</a>
-                <div class="search-second">
-                    <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
-                    <p class="search-second-date"> Date : 01/01/1998 </p>
-                </div>
-                <div class="url-wrapper">
-                    <span class="url">https://www.corporate.axa.be/employeebenefits/fr/contact/pages/contact.aspx?cprofile=2 </span>
-                </div>
-            </div>
-        </div>
+        }
     </div>
     <div class="btn-container">
         <button class="btn draw-border"> Load More </button>
