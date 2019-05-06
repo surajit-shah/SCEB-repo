@@ -192,6 +192,7 @@
     <Content Include="Images\bg-nav-selected.gif" />
     <Content Include="Images\bottom-gradient-small.gif" />
     <Content Include="Images\bullet.gif" />
+    <Content Include="Images\download.png" />
     <Content Include="Images\employee-benefits-EN.png" />
     <Content Include="Images\employee-benefits-FR.png" />
     <Content Include="Images\employee-benefits-NL.png" />
@@ -254,6 +255,7 @@
     <Content Include="Views\SCNavigations\SCNavigationBoxList.cshtml" />
     <Content Include="Views\SCNavigations\SCNavigationBox.cshtml" />
     <Content Include="Views\Shared\SCPageBody\SCSuccess.cshtml" />
+    <Content Include="Views\SCPromotions\SCPrivateEmployerBody.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

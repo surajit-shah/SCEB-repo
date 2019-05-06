@@ -21,6 +21,7 @@
                 resultItem.Name = item.Fields["Name"].Value;
                 resultItem.Title = item.Fields["Title"].Value;
                 resultItem.Description = item.Fields["Description"].Value;
+                resultItem.Url = item.Fields["Url"].Value;
                 resultItems.Add(resultItem);
             }
 
@@ -74,32 +75,37 @@
                             <p class="search-second-date">@resultItem.Description </p>
                         </div>
                         <div class="url-wrapper">
-                            <a title="@resultItem.Name" href="@resultItem.MediaUrl" target="_blank">@resultItem.Name</a>
-                            @*<span class="url">@resultItem.Name</span>*@
-                        </div>
-
+                            <span class="url">
+                                @resultItem.Name
+                            <a title="@resultItem.Name" href="@resultItem.MediaUrl" target="_blank">
+                                @resultItem.Name
+                            </a>
+                        </span>
+                        @*<span class="url">@resultItem.Name</span>*@
                     </div>
+
                 </div>
-            }
+            </div>
         }
-        else
-        {
-            <div class="searchResult raise">
+    }
+    else
+    {
+        <div class="searchResult raise">
 
-                <div class="wrapper">
-                    <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i></a>
-                    <div class="search-second">
-                        @*<p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>*@
-                        <p class="search-second-date">Sorry!! No results Found </p>
-                    </div>
-                    <div class="url-wrapper">
-                        <span class="url"></span>
-                    </div>
-
+            <div class="wrapper">
+                <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i></a>
+                <div class="search-second">
+                    @*<p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>*@
+                    <p class="search-second-date">Sorry!! No results Found </p>
+                </div>
+                <div class="url-wrapper">
+                    <span class="url"></span>
                 </div>
 
             </div>
-        }
+
+        </div>
+    }
     </div>
     <div class="btn-container">
         <button class="btn draw-border"> Load More </button>
