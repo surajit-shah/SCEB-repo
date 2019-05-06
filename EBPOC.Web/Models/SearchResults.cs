@@ -18,6 +18,7 @@ using System.Xml.XPath;
 
 namespace EBPOC.Web.Models
 {
+    // search result temp comment
     public class SearchResults
     {
         public string SearchString { get; set; }

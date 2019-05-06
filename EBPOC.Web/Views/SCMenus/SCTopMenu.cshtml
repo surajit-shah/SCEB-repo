@@ -10,8 +10,8 @@
         <a class="active-menu" href="@Sitecore.Links.LinkManager.GetItemUrl(EBPOC.Web.Helpers.SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome"))">
             @SiteHelper.HomeItem().Fields["Meta Title"].Value
         </a>
-        @foreach (var item in SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome").Children.ToArray())
-        {
+        @foreach (var item in SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome").Children.InnerChildren.ToArray())
+        { 
             if (@item["Show in Menu"] == "1")
             {
                 if (@item.Fields["Meta Title"].Value == Model.Item.DisplayName)
