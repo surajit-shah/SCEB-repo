@@ -1,10 +1,22 @@
-﻿@using Sitecore.Mvc
+﻿@using Sitecore
+@using Sitecore.Mvc
 @using Sitecore.Mvc.Presentation
 @using EBPOC.Web.Models
+@using Sitecore.Data.Items
+@using Sitecore.Resources.Media
+@model RenderingModel
+@{
+    Item item = Sitecore.Context.Item;
 
+    Sitecore.Data.Fields.ImageField imgField = ((Sitecore.Data.Fields.ImageField)item.Fields["ArticleBanner"]);
+    var image = new MediaItem(imgField.MediaItem);
+    string articleBannerUrl = StringUtil.EnsurePrefix('/', MediaManager.GetMediaUrl(image));
+    //string articleBannerUrl = Sitecore.Resources.Media.MediaManager.GetMediaUrl(imgField.MediaItem);
+}
 
-<div id="image">
-    <img src="@Html.Sitecore().Field("ArticleHeader")" style="visibility: hidden;" />
+<div id="image" style="background: url(@articleBannerUrl) no-repeat;background-size: 100%; height:200px;">
+    @*<img src="@articleBannerUrl no-repeat" />*@
+    @Html.Sitecore().Field("ArticleHeader")
 </div>
 <div class="section">
     @Html.Sitecore().Field("ArticleSummery")

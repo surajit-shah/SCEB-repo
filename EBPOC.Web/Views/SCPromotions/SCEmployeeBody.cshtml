@@ -1,13 +1,14 @@
 ﻿@using Sitecore.Mvc
 @using Sitecore.Mvc.Presentation
+@using Sitecore.Data.Items;
 @model RenderingModel
 @{
-
+    Item item = Sitecore.Context.Item;
+    Sitecore.Data.Fields.ImageField imgField = ((Sitecore.Data.Fields.ImageField)item.Fields["ArticleBanner"]);
+    string articleBannerUrl = Sitecore.Resources.Media.MediaManager.GetMediaUrl(imgField.MediaItem);
 }
-<div id="image">
-    <img src="@Html.Sitecore().Field("ArticleHeader")" style="visibility: hidden;" />
-</div>
-<div class="section">
+<div id="image" style="background: url(@articleBannerUrl) no-repeat;background-size: 100%; height:200px;">
+    @*<img src="@articleBannerUrl" />*@
     @Html.Sitecore().Field("ArticleHeader")
 </div>
 <div id="secondcontent">

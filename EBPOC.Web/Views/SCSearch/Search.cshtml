@@ -8,6 +8,7 @@
     //SearchResults searchResults = new SearchResults();
     List<ResultItems> resultItems = new List<ResultItems>();
     bool isSearchResultavailable = false;
+    bool showMediaResults = false;
     Item[] items = Sitecore.Configuration.Factory.GetDatabase("master").GetItem("{28304EE5-F79B-4FB6-AE45-9926A63AC41D}").Children.ToArray();/*GetItem("/sitecore/content/EmployeeBenefits/SearchResltData/ResultItemData").Children.ToArray();*/
     if (items != null)
     {
@@ -22,6 +23,11 @@
                 resultItem.Title = item.Fields["Title"].Value;
                 resultItem.Description = item.Fields["Description"].Value;
                 resultItem.Url = item.Fields["Url"].Value;
+                resultItem.MediaUrl = item.Fields["MediaUrl"].Value;
+                if (resultItem.MediaUrl != null)
+                {
+                    showMediaResults = true;
+                }
                 resultItems.Add(resultItem);
             }
 
@@ -31,6 +37,7 @@
     {
 
         isSearchResultavailable = false;
+        showMediaResults = false;
     }
 }
 }
@@ -65,53 +72,84 @@
     <div class="searchContainer">
         @if (isSearchResultavailable)
         {
-            foreach (var resultItem in @resultItems)
+            if (!showMediaResults)
             {
-                <div class="searchResult raise">
-                    <div class="wrapper">
-                        <a class="third after" href="@resultItem.Url"><i class="fa fa-link icon" aria-hidden="true"></i>@resultItem.Name</a>
-                        <div class="search-second">
-                            <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
-                            <p class="search-second-date">@resultItem.Description </p>
+                foreach (var resultItem in resultItems)
+                {
+                    <div class="searchResult raise">
+                        <div class="wrapper">
+                            <a title="@resultItem.Name" ="third after" href="@resultItem.Url"><i class="fa fa-link icon" aria-hidden="true"></i>@resultItem.Name</a>
+                            <div class="search-second">
+                                <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
+                                <p class="search-second-date">@resultItem.Description </p>
+                            </div>
+                            <div class="url-wrapper">
+                                <span class="url">
+                                    @*@resultItem.Name*@
+                                    <a title="@resultItem.Name" href="@resultItem.MediaUrl" target="_blank">
+                                        @resultItem.MediaUrl
+                                    </a>
+                                </span>
+                                @*<span class="url">@resultItem.Name</span>*@
+                            </div>
+
                         </div>
-                        <div class="url-wrapper">
-                            <span class="url">
-                                @resultItem.Name
-                            <a title="@resultItem.Name" href="@resultItem.MediaUrl" target="_blank">
-                                @resultItem.Name
-                            </a>
-                        </span>
-                        @*<span class="url">@resultItem.Name</span>*@
+                    </div>
+                }
+            }
+            else
+            {
+                foreach (var resultItem in resultItems)
+                {
+                    <div class="searchResult raise">
+                        <div class="wrapper">
+                            <a class="third after" href="@resultItem.MediaUrl" target="_blank"><i class="fa fa-link icon" aria-hidden="true"></i>@resultItem.Name</a>
+                            <div class="search-second">
+                                <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
+                                <p class="search-second-date">@resultItem.Description </p>
+                            </div>
+                            <div class="url-wrapper">
+                                <span class="url">
+                                    @*@resultItem.Name*@
+                                    <a title="@resultItem.Name" href="@resultItem.MediaUrl" target="_blank">
+                                        @resultItem.MediaUrl
+                                    </a>
+                                </span>
+                                @*<span class="url">@resultItem.Name</span>*@
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                }
+            }
+        }
+        else
+        {
+            <div class="searchResult raise">
+
+                <div class="wrapper">
+                    <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i></a>
+                    <div class="search-second">
+                        @*<p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>*@
+                        <p class="search-second-date">Sorry!! No results Found</p>
+                    </div>
+                    <div class="url-wrapper">
+                        <span class="url"></span>
                     </div>
 
                 </div>
+
             </div>
         }
-    }
-    else
-    {
-        <div class="searchResult raise">
-
-            <div class="wrapper">
-                <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i></a>
-                <div class="search-second">
-                    @*<p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>*@
-                    <p class="search-second-date">Sorry!! No results Found </p>
-                </div>
-                <div class="url-wrapper">
-                    <span class="url"></span>
-                </div>
-
-            </div>
-
-        </div>
-    }
     </div>
     <div class="btn-container">
-        <button class="btn draw-border"> Load More </button>
+        <button class="btn draw-border"> Load More</button>
     </div>
 </div>
-@*<div class="col-md-9" id="firstContent">
+         }   @*<div class="col-md-9" id="firstContent">
 
         <div class="container">
             <div class="row">
@@ -150,7 +188,7 @@
             </div>
         </div>
     </div>*@
-@*<div class="col-md-3">
-        @Html.Sitecore().Placeholder("ArticlePage.Grid.Right")
-    </div>*@
+        @*<div class="col-md-3">
+                @Html.Sitecore().Placeholder("ArticlePage.Grid.Right")
+            </div>*@
 
