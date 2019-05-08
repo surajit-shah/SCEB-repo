@@ -5,11 +5,11 @@
     @{
 
     }*@
-@model SCPromotionBoxVM
+@model IEnumerable<SCNavigationVM>
 <div class="side_box" id="subnav">
     <div class="side_box_inner">
         <ul id="" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
-            @foreach (var navigationVM in Model.NavigationList)
+            @foreach (var navigationVM in Model)
             {
                 <li id="nav_employer">
                     <a href="@navigationVM.NavigationRedirect">@navigationVM.NavigationText</a>

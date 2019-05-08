@@ -48,7 +48,7 @@ ul#lang {
     #lang li a {
         font-size: 3em;
         line-height: 1em;
-        color: #755359 !important;
+        color: #c10909 !important;
         padding-right: 10px;
         border-right: 1px solid #666;
         margin-right: 10px;
@@ -59,7 +59,7 @@ ul#lang {
         }
 
     #lang li.selected a {
-        color: #103184;
+        color: green !important;
     }
 
 li#langLast a {

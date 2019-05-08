@@ -25,13 +25,26 @@ namespace EBPOC.Web.Controllers
         // GET: Navigation
         public ActionResult SCLanguageSwitcher()
         {
-            Dictionary<string, string> list = new Dictionary<string, string>();
+            var currentItem = RenderingContext.Current.Rendering.Item;
+            List<SCLanguageVM> list = new List<SCLanguageVM>();
+            //Dictionary<string, string> list = new Dictionary<string, string>();
             LanguageCollection languageCollection = LanguageManager.GetLanguages(Context.Database);
             foreach (Language language in languageCollection)
             {
+                SCLanguageVM langObject = new SCLanguageVM();
                 string url = GetItemUrl(Context.Item, language);
-                list.Add(language.CultureInfo.DisplayName, url);
-
+                //list.Add(language.CultureInfo.DisplayName, url);
+                langObject.LanguageName = language.CultureInfo.DisplayName;
+                langObject.LanguageUrl = url;
+                if (currentItem.Language.Name.ToUpper() == "EN")
+                {
+                    langObject.LanguageIsSelected = currentItem.Language.Name;
+                }
+                else
+                {
+                    langObject.LanguageIsSelected = currentItem.Language.Name.Substring(currentItem.Language.Name.Length - 2);
+                }
+                list.Add(langObject);
             }
 
             return View(list);
@@ -104,21 +117,49 @@ namespace EBPOC.Web.Controllers
         public ActionResult SCNavigationBoxList()
         {
             List<SCNavigationBoxVM> navboxlist = new List<SCNavigationBoxVM>();
-            var navboxitem = Sitecore.Context.Database.GetItem("{1F3126D5-9AA8-4FA6-9551-CF9BD8AF7078}");
-            SCNavigationBoxVM navigationBoxVM = new SCNavigationBoxVM(navboxitem);
-            List<SCNavigationVM> articles = new List<SCNavigationVM>();
-            MultilistField multilistField = Sitecore.Context.Database.GetItem("{1F3126D5-9AA8-4FA6-9551-CF9BD8AF7078}").Fields["NavigationList"];
+            ChildList navBoxItems = Sitecore.Context.Database.GetItem("{2BDE8942-7089-46D4-A959-32A1C709B566}").Children;
+            foreach (var navBox in navBoxItems)
+            {
+                Sitecore.Data.Items.Item navBoxItem = (Sitecore.Data.Items.Item)navBox;
+                var navigationBoxVM = new SCNavigationBoxVM(navBoxItem);
+                //var navboxitem = Sitecore.Context.Database.GetItem("{568325BB-0387-4FC2-90B5-6DE79965FDCF}");
+                //SCNavigationBoxVM navigationBoxVM = new SCNavigationBoxVM(navboxitem);
+                List<SCNavigationVM> navList = new List<SCNavigationVM>();
+                MultilistField multilistField = Sitecore.Context.Database.GetItem(navBoxItem.ID.ToString()).Fields["NavigationList"];
+                if (multilistField != null)
+                {
+                    Item[] navItems = multilistField.GetItems();
+                    foreach (Item item in navItems)
+                    {
+                        navList.Add(new SCNavigationVM(item));
+                    }
+                }
+                navigationBoxVM.NavigationList = navList;
+                navboxlist.Add(navigationBoxVM);
+            }
+            return PartialView(navboxlist);
+        }
+
+        public ActionResult SCPromotionBox()
+        {
+            List<SCNavigationVM> navList = new List<SCNavigationVM>();
+            MultilistField multilistField = Sitecore.Context.Database.GetItem("{568325BB-0387-4FC2-90B5-6DE79965FDCF}").Fields["NavigationList"];
+            //ChildList linkItems = Sitecore.Context.Database.GetItem("{82D6DC6C-3264-405B-9A8A-84540B0178C1}").Children;
+            //foreach (var linkItem in linkItems)
+            //{
+            //    Sitecore.Data.Items.Item sampleMedia = (Sitecore.Data.Items.Item)linkItem;
+            //    navList.Add(new SCNavigationVM(sampleMedia));
+            //}
             if (multilistField != null)
             {
-                Item[] carouselItems = multilistField.GetItems();
-                foreach (Item item in carouselItems)
+                Item[] fieldItems = multilistField.GetItems();
+                foreach (Item item in fieldItems)
                 {
-                    articles.Add(new SCNavigationVM(item));
+                    navList.Add(new SCNavigationVM(item));
                 }
             }
-            navigationBoxVM.NavigationList = articles;
-            navboxlist.Add(navigationBoxVM);
-            return PartialView(navboxlist);
+
+            return PartialView(navList);
         }
     }
 }

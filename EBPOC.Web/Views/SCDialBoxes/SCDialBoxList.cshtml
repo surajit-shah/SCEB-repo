@@ -14,11 +14,12 @@
     //        return new Sitecore.Data.Items.Item.ItemDebuggerTypeProxy(pageContext.Item).Id;
     //    }
     //}
-    
+
     var pageContext = Sitecore.Mvc.Presentation.PageContext.CurrentOrNull;
     string ItemId = new Sitecore.Data.Items.Item.ItemDebuggerTypeProxy(pageContext.Item).Id;
     //var renderings = pageContext.PageDefinition.Renderings;
     //}
     //return ItemId;
 }
-@Html.Sitecore().ControllerRendering("SCDialBoxes", "SCDialBox", new { itemId = Model.Item })
+@Html.Action("SCDialBox", "SCDialBoxes", new { ItemId = Model.Item })
+@*@Html.Sitecore().ControllerRendering("SCDialBoxes", "SCDialBox", new { ItemId = Model.Item })*@

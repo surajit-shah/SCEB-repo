@@ -1,21 +1,33 @@
 ﻿@using Sitecore.Mvc
 @using Sitecore.Mvc.Presentation
-@model IDictionary<string, string>
+@*@model IDictionary<string, string>*@
+@using EBPOC.Web.Models
+
+@model List<SCLanguageVM>
 <ul id="lang">
     @foreach (var language in Model)
     {
-        string[] lanValues = language.Value.Split('/');
-        if (language.Key.ToUpper() == "ENGLISH")
+        string[] lanValues = language.LanguageUrl.Split('/');
+        string langSort = lanValues[1].Substring(lanValues[1].Length - 2);
+        string langSelected = string.Empty;
+        if (langSort.ToUpper() == language.LanguageIsSelected.ToUpper())
         {
-            //Dutch(Netherlands)
-            <li class="selected">
-                <a href="@language.Value">@lanValues[1].ToUpper()</a>
+            langSelected = "selected";
+        }
+        //else
+        //{
+        //    langSelected = "langLast";
+        //}
+        if (language.LanguageName.ToUpper() == "ENGLISH")
+        {
+            <li class="@langSelected">
+                <a href="@language.LanguageUrl">@lanValues[1].ToUpper()</a>
             </li>
         }
         else
         {
-            <li id="langLast">
-                <a href="@language.Value">@lanValues[1].Substring(lanValues[1].Length - 2).ToUpper()</a>
+            <li class="@langSelected" id="langLast">
+                <a href="@language.LanguageUrl">@langSort.ToUpper()</a>
             </li>
         }
     }

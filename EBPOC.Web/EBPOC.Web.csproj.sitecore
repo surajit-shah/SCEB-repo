@@ -27,7 +27,7 @@
   <File Include="Views\SCDocuments\SCDocumentList.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{719CDE7C-5024-45E0-B665-05841C33571A}</Item>
   </File>
-  <File Include="Views\SCPromotions\SCPromotionBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+  <File Include="Views\SCNavigations\SCPromotionBox.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{8E3D4F41-24AB-4794-800C-00A7240E6B25}</Item>
   </File>
   <File Include="Views\SCContactProfiles\SCContactBody.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
@@ -68,5 +68,11 @@
   </File>
   <File Include="Views\SCNavigations\SCNavigationBoxList.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
     <Item DatabaseName="master">{1FE34844-1D6E-4306-8ED5-BEBE9FAF3182}</Item>
+  </File>
+  <File Include="Views\SCPromotions\SCPrivateEmployerBody.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{D5B12631-8EE7-4375-9241-65B0F91D99B7}</Item>
+  </File>
+  <File Include="Views\SCNavigations\SCPromotions.cshtml" FileTimestamp="0" FileSize="0" ServerTimestamp="0" ServerFileSize="0">
+    <Item DatabaseName="master">{C25E875E-0132-4B64-BA28-EDD2421742D3}</Item>
   </File>
 </Project>

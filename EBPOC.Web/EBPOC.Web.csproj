@@ -150,6 +150,7 @@
     <Compile Include="Helpers\SiteHelper.cs" />
     <Compile Include="Models\CarouselSlide.cs" />
     <Compile Include="Models\SCLanguageVM.cs" />
+    <Compile Include="Models\SCPromotionBoxVM.cs" />
     <Compile Include="Models\SCNavigationBoxVM.cs" />
     <Compile Include="Models\SCProfileFieldVM.cs" />
     <Compile Include="Models\DocumentDetails.cs" />
@@ -237,7 +238,7 @@
     <Content Include="Views\SCDocuments\SCMediaDownloadLink.cshtml" />
     <Content Include="Views\SCDocuments\SCDocumentList.cshtml" />
     <Content Include="Views\SCSearch\SearchBox.cshtml" />
-    <Content Include="Views\SCPromotions\SCPromotionBox.cshtml" />
+    <Content Include="Views\SCNavigations\SCPromotionBox.cshtml" />
     <Content Include="Views\SCContactProfiles\SCContactBody.cshtml" />
     <Content Include="Views\SCPromotions\SCEmployeeBody.cshtml" />
     <Content Include="Views\Shared\SCMainLayout.cshtml" />
@@ -257,6 +258,7 @@
     <Content Include="Views\SCNavigations\SCNavigationBox.cshtml" />
     <Content Include="Views\Shared\SCPageBody\SCSuccess.cshtml" />
     <Content Include="Views\SCPromotions\SCPrivateEmployerBody.cshtml" />
+    <Content Include="Views\SCNavigations\SCPromotions.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
