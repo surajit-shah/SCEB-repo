@@ -47,6 +47,7 @@ ul#lang {
 
     #lang li a {
         font-size: 3em;
+        font-weight:bold;
         line-height: 1em;
         color: #c10909 !important;
         padding-right: 10px;
@@ -131,11 +132,26 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
     border-radius: inherit !important;
 }
 
+.submit {
+    color: white;
+    width: 80px;
+    margin-left: 10px;
+    background: #6dafc3;
+    font-size: 2.5em;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+    .submit:hover {
+        background: #4f6369;
+    }
+
 #hpnav {
     display: flex;
     line-height: 40px;
     font-size: 1.3em;
-    padding-left: 15px;
+    /*padding-left: 15px;*/
+    margin-left: -15px;
     clear: both;
     width: 100%;
 }
@@ -304,11 +320,12 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
     }
 }
 
-@media (min-width:1500px) {
+/* Commented to avoid fuul screen mode
+    @media (min-width:1500px) {
     #ebi_flash_box, #dail_box {
         height: 160px !important;
     }
-}
+}*/
 /*header style ends*/
 
 /*main content styles*/
@@ -704,7 +721,7 @@ select, input {
     #thirdContent .section {
         margin: 0;
         padding: 0;
-        font-size: 1.2em;
+        /*font-size: 2em;*/
         font-family: "Helvetica", "Arial", sans-serif;
     }
 
@@ -712,7 +729,7 @@ select, input {
             margin: 0px;
             padding: 10px;
             text-align: left;
-            font-size: 5em;
+            font-size: 2em!important;
             line-height: 1em;
             color: #28489b;
             font-weight: normal;
@@ -726,7 +743,7 @@ select, input {
         padding: 0;
         margin-bottom: 10px;
         line-height: 1.4em;
-        font-size: 2em;
+        font-size: 1.3em;
     }
 
     #thirdContent .section ul {
@@ -742,7 +759,7 @@ select, input {
             margin: 0;
             padding: 0;
             margin-bottom: 5px;
-            line-height: 1.4em;
+            line-height: 1.3em;
             list-style-position: outside;
         }
 
@@ -791,7 +808,7 @@ select, input {
     margin: 0;
     padding: 0;
     margin-bottom: 5px;
-    font-size: 1.7em;
+    font-size: 2.2em;
     line-height: 1.4em;
 }
 
@@ -845,13 +862,13 @@ select, input {
     border-right: 1px solid #F2F2F2;
 }*/
 .sidebarwrapper .cta {
-    background-color: #e4e1e1;
+    background-color: #ebe0e0;
     float: left;
-    margin: 0 3px;
+    margin: 3px 3px;
     padding: 5px 20px 20px;
-    border-bottom: 0;
     border-left: 1px solid #D8D8D8;
-    border-right: 1px solid #F2F2F2;
+    border-right: 2px solid #b1acac;
+    border-bottom: 0.5px solid #ada5a5;
     border-style: inset;
 }
 
@@ -925,7 +942,7 @@ select, input {
 .cta p {
     margin: 0px;
     padding: 0px;
-    font-size: 2em;
+    font-size: 2.2em;
     line-height: 1.5em;
 }
 
@@ -991,7 +1008,7 @@ select, input {
 #search {
     margin: 0;
     float: right;
-    padding: 8px 10px 0 0;
+    padding: 0 0 15px 0;
     width: 220px;
 }
 
@@ -1197,6 +1214,7 @@ a.third:after {
 .raise {
     --color: #ef6eae;
     --hover: #a5a2a0;
+    width:100%;
 }
 
     .raise:hover,

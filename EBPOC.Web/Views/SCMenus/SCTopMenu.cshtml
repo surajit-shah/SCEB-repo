@@ -6,59 +6,153 @@
 
 }
 <div>
-    <div class="topnav" id="myTopnav">
+    @*<div class="topnav" id="myTopnav">
         @if (Model.Item.DisplayName == "SCEBHome")
         {
             <a class="active-menu" href="@Sitecore.Links.LinkManager.GetItemUrl(EBPOC.Web.Helpers.SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages"))">
-                @SiteHelper.HomeItem().Fields["Meta Title"].Value
+            @SiteHelper.HomeItem().Fields["Meta Title"].Value
             </a>
-        }
-        else
-        {
+            }
+            else
+            {
             <a href="@Sitecore.Links.LinkManager.GetItemUrl(EBPOC.Web.Helpers.SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages"))">
                 @SiteHelper.HomeItem().Fields["Meta Title"].Value
             </a>
-        }
-        @foreach (var item in SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome").Children.InnerChildren.ToArray())
-        {
-            if (@item["Show in Menu"] == "1")
+            }
+            @foreach (var item in SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome").Children.InnerChildren.ToArray())
             {
-                if (@item.Fields["Meta Title"].Value == Model.Item.DisplayName)
+                if (@item["Show in Menu"] == "1")
                 {
-                    <a class="active-menu" href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">
-                        @item.Fields["Meta Title"].Value
-                    </a>
-                }
-                else
-                {
-                    <a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">
-                        @item.Fields["Meta Title"].Value
-                    </a>
-                }
-                if (SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome/" + item.Name).HasChildren)
-                {
-                    foreach (var itemch in SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome/" + item.Name).Children.InnerChildren.ToArray())
+                    if (@item.Fields["Meta Title"].Value == Model.Item.DisplayName)
                     {
-                        if (@itemch["Show in Menu"] == "1")
+                        <a class="active-menu" href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">
+                            @item.Fields["Meta Title"].Value
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">
+                            @item.Fields["Meta Title"].Value
+                        </a>
+                    }
+                    if (SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome/" + item.Name).HasChildren)
+                    {
+                        foreach (var itemch in SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome/" + item.Name).Children.InnerChildren.ToArray())
                         {
-                            if (@itemch.Fields["Meta Title"].Value == Model.Item.DisplayName)
+                            if (@itemch["Show in Menu"] == "1")
                             {
-                                <a class="active-menu" href="@Sitecore.Links.LinkManager.GetItemUrl(@itemch)">
-                                    @itemch.Fields["Meta Title"].Value
-                                </a>
-                            }
-                            else
-                            {
-                                <a href="@Sitecore.Links.LinkManager.GetItemUrl(@itemch)">
-                                    @itemch.Fields["Meta Title"].Value
-                                </a>
+                                if (@itemch.Fields["Meta Title"].Value == Model.Item.DisplayName)
+                                {
+                                    <a class="active-menu" href="@Sitecore.Links.LinkManager.GetItemUrl(@itemch)">
+                                        @itemch.Fields["Meta Title"].Value
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="@Sitecore.Links.LinkManager.GetItemUrl(@itemch)">
+                                        @itemch.Fields["Meta Title"].Value
+                                    </a>
 
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-        @Html.Sitecore().Placeholder("Topmenu.Search")
-    </div>
+            @Html.Sitecore().Placeholder("Topmenu.Search")
+        </div>*@
+
+
+    <header>
+        <div class="menu">
+            <input type="checkbox" class="toggler" id="checkbox">
+            <div class="hamburger"><div></div></div>
+            <div class="navbar">
+                <div class="nav-items">
+                    <ul>
+                        @if (Model.Item.DisplayName == "SCEBHome")
+                        {
+                            <li class="menuli"><a style="color:blue" href="@Sitecore.Links.LinkManager.GetItemUrl(EBPOC.Web.Helpers.SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages"))">@SiteHelper.HomeItem().Fields["Meta Title"].Value</a></li>
+                        }
+                        else
+                        {
+                            <li class="menuli"><a href="@Sitecore.Links.LinkManager.GetItemUrl(EBPOC.Web.Helpers.SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages"))">@SiteHelper.HomeItem().Fields["Meta Title"].Value</a></li>
+                        }
+                        @foreach (var item in SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome").Children.InnerChildren.ToArray())
+                        {
+                            if (@item["Show in Menu"] == "1")
+                            {
+                                if (@item.Fields["Meta Title"].Value == Model.Item.DisplayName)
+                                {
+                                    <li class="menuli">
+                                        @if (SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome/" + item.Name).HasChildren)
+                                        {
+                                            <div class="drop1">
+                                                <input type="checkbox" id="drop1">
+                                                <label for="drop1">
+                                                    @if (item.Fields["Meta Title"].Value == Model.Item.DisplayName)
+                                                    {
+                                                        <a style="color:blue" href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">@item.Fields["Meta Title"].Value<i class="material-icons">keyboard_arrow_down</i></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">@item.Fields["Meta Title"].Value<i class="material-icons">keyboard_arrow_down</i></a>
+                                                    }
+                                                </label>
+                                                <div class="drop-menu">
+                                                    @foreach (var itemch in SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome/" + item.Name).Children.InnerChildren.ToArray())
+                                                    {
+                                                        if (itemch["Show in Menu"] == "1")
+                                                        {
+                                                            <a href="@Sitecore.Links.LinkManager.GetItemUrl(@itemch)">@itemch.Fields["Meta Title"].Value</a>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <a style="color:blue" href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">@item.Fields["Meta Title"].Value</a>
+                                        }
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="menuli">
+                                        @if (SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome/" + item.Name).HasChildren)
+                                        {
+                                            <div class="drop1">
+                                                <input type="checkbox" id="drop1">
+                                                <label for="drop1"><a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">@item.Fields["Meta Title"].Value</a><i class="fa fa-caret-down" style="font-size: 17px;margin-left: 10px;"></i></label>
+                                                <div class="drop-menu">
+                                                    @foreach (var itemch in SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages/SCEBHome/" + item.Name).Children.InnerChildren.ToArray())
+                                                    {
+                                                        if (itemch["Show in Menu"] == "1")
+                                                        {
+                                                            <a href="@Sitecore.Links.LinkManager.GetItemUrl(@itemch)">@itemch.Fields["Meta Title"].Value</a>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        }
+                                        else if (@item.Fields["Meta Title"].Value == Model.Item.DisplayName)
+                                        {
+                                            <a style="color:blue" href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">@item.Fields["Meta Title"].Value</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="@Sitecore.Links.LinkManager.GetItemUrl(@item)">@item.Fields["Meta Title"].Value</a>
+                                        }
+                                    </li>
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+            @Html.Sitecore().Placeholder("Topmenu.Search")
+        </div>
+        @*@Html.Sitecore().Placeholder("Topmenu.Search")*@
+    </header>
+
 </div>

@@ -8,13 +8,36 @@
 <!--Header for the page begins-->
 @Html.Sitecore().Placeholder("ArticlePage.Grid.Header")
 <!--Header for the page ends-->
-<div style="display:grid;">
-    <div id="maincontent">
-        <div class="col-md-9" id="firstContent">
-            @Html.Sitecore().Placeholder("ArticlePage.Grid.Left")
+@*<div style="display:grid;">
+        <div id="maincontent">
+            <div class="col-md-9" id="firstContent">
+                @Html.Sitecore().Placeholder("ArticlePage.Grid.Left")
+            </div>
+            <div class="col-md-3">
+                @Html.Sitecore().Placeholder("ArticlePage.Grid.Right")
+            </div>
         </div>
-        <div class="col-md-3">
-            @Html.Sitecore().Placeholder("ArticlePage.Grid.Right")
+    </div>*@
+<div class="container">
+    <div id="hpnav">
+        <div id="ctl00_PageHolder_HomePageNavHolder_HPLinks">
+            <div id="ctl00_PageHolder_HomePageNavHolder_HPLinks_HPLinks1_upPanLinkListForm">
+                @Html.Sitecore().Controller("SCNavigations", "Breadcrumbs")
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="home_main">
+            <div style="display:grid;">
+                <div id="maincontent">
+                    <div class="col-md-9" id="firstContent">
+                        @Html.Sitecore().Placeholder("ArticlePage.Grid.Left")
+                    </div>
+                    <div class="col-md-3">
+                        @Html.Sitecore().Placeholder("ArticlePage.Grid.Right")
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

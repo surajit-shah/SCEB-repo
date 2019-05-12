@@ -9,13 +9,18 @@
     List<ResultItems> resultItems = new List<ResultItems>();
     bool isSearchResultavailable = false;
     bool showMediaResults = false;
-    Item[] items = Sitecore.Configuration.Factory.GetDatabase("master").GetItem("{28304EE5-F79B-4FB6-AE45-9926A63AC41D}").Children.ToArray();/*GetItem("/sitecore/content/EmployeeBenefits/SearchResltData/ResultItemData").Children.ToArray();*/
+    List<ResultData> resultDatas = new List<ResultData>();
+    Item[] items = Sitecore.Configuration.Factory.GetDatabase("master").GetItem("{28304EE5-F79B-4FB6-AE45-9926A63AC41D}").Children.ToArray();
+    /*GetItem("/sitecore/content/EmployeeBenefits/SearchResltData/ResultItemData").Children.ToArray();*/
     if (items != null)
     {
-        var resultItem = new ResultItems();
+        //  ResultData resultItem=new ResultData()
+        // var resultItem = new ResultItems();
         //Item[] carouselItems = multilistField.GetItems();
         foreach (Item item in items)
         {
+            var resultItem = new ResultItems();
+
             if (item != null)
             {
                 isSearchResultavailable = true;
@@ -24,7 +29,7 @@
                 resultItem.Description = item.Fields["Description"].Value;
                 resultItem.Url = item.Fields["Url"].Value;
                 resultItem.MediaUrl = item.Fields["MediaUrl"].Value;
-                if (resultItem.MediaUrl != null)
+                if (resultItem.MediaUrl != string.Empty)
                 {
                     showMediaResults = true;
                 }
@@ -59,11 +64,33 @@
             <div class="col-lg-6">
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="text" class="form-control"
-                               placeholder="Search" id="inputGroup" />
-                        <span class="input-group-addon" style="cursor: pointer;" onclick="myFunction()">
-                            <i class="fa fa-search"></i>
-                        </span>
+                        <div id="">
+                            @using (Html.BeginForm("Search", "SCSearch", FormMethod.Post))
+                            {
+                                <form action="/Search" method="post" id="searchform">
+                                    <input name="SearchStr" type="text" id="" style="width: 300px">
+                                   
+                                    <input type="submit" class="submit" value="search"/>
+                                   
+                                    @*<a id="" title="Search" class="magSubmit" href=''></a>*@
+                                </form>
+                            }
+                        </div>
+                        @*@using (Html.BeginForm("Search", "SCSearch", FormMethod.Post))
+            {
+
+        <input type="text" name="SearchStr" id="SearchStr" class="form-control" placeholder="Search" />
+        <span class="input-group-addon" style="cursor: pointer;">
+            <button type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
+        }*@
+                        @*<input type="text" class="form-control"
+               placeholder="Search" id="inputGroup" />
+        <span class="input-group-addon" style="cursor: pointer;" onclick="myFunction()">
+            <i class="fa fa-search"></i>
+        </span>*@
                     </div>
                 </div>
             </div>
@@ -72,22 +99,22 @@
     <div class="searchContainer">
         @if (isSearchResultavailable)
         {
-            if (!showMediaResults)
+            if (showMediaResults)
             {
                 foreach (var resultItem in resultItems)
                 {
                     <div class="searchResult raise">
                         <div class="wrapper">
-                            <a title="@resultItem.Name" ="third after" href="@resultItem.Url"><i class="fa fa-link icon" aria-hidden="true"></i>@resultItem.Name</a>
+                            <a class="third after" href="@resultItem.MediaUrl" target="_blank"><i style="padding-right:10px" class="fa fa-link icon" aria-hidden="true"></i>@resultItem.Name</a>
                             <div class="search-second">
-                                <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
+                                @*<p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>*@
                                 <p class="search-second-date">@resultItem.Description </p>
                             </div>
                             <div class="url-wrapper">
                                 <span class="url">
                                     @*@resultItem.Name*@
                                     <a title="@resultItem.Name" href="@resultItem.MediaUrl" target="_blank">
-                                        @resultItem.MediaUrl
+                                        @resultItem.Name
                                     </a>
                                 </span>
                                 @*<span class="url">@resultItem.Name</span>*@
@@ -103,16 +130,16 @@
                 {
                     <div class="searchResult raise">
                         <div class="wrapper">
-                            <a class="third after" href="@resultItem.MediaUrl" target="_blank"><i class="fa fa-link icon" aria-hidden="true"></i>@resultItem.Name</a>
+                            <a class="third after" href="@resultItem.Url"><i  style="padding-right :10px" class="fa fa-link icon" aria-hidden="true"></i>@resultItem.Name</a>
                             <div class="search-second">
-                                <p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>
+                                @*<p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>*@
                                 <p class="search-second-date">@resultItem.Description </p>
                             </div>
                             <div class="url-wrapper">
                                 <span class="url">
                                     @*@resultItem.Name*@
-                                    <a title="@resultItem.Name" href="@resultItem.MediaUrl" target="_blank">
-                                        @resultItem.MediaUrl
+                                    <a title="@resultItem.Name" href="@resultItem.Url">
+                                        @resultItem.Name
                                     </a>
                                 </span>
                                 @*<span class="url">@resultItem.Name</span>*@
@@ -131,13 +158,13 @@
             <div class="searchResult raise">
 
                 <div class="wrapper">
-                    <a class="third after" href="#"><i class="fa fa-link icon" aria-hidden="true"></i></a>
+                    <a class="third after" href="@Sitecore.Links.LinkManager.GetItemUrl(EBPOC.Web.Helpers.SiteHelper.ProductItems("/sitecore/content/EmployeeBenefits/Pages"))"><i class="fa fa-link icon" aria-hidden="true"></i>Sorry!! No results Found, Click on this link to go back to Home</a>
                     <div class="search-second">
-                        @*<p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>*@
-                        <p class="search-second-date">Sorry!! No results Found</p>
+                        @*<p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>*
+                        <p class="search-second-date">Sorry!! No results Found</p>*@
                     </div>
                     <div class="url-wrapper">
-                        <span class="url"></span>
+                        @*<span class="url"></span>*@
                     </div>
 
                 </div>

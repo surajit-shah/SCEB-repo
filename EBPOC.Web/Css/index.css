@@ -47,6 +47,7 @@ ul#lang {
 
     #lang li a {
         font-size: 3em;
+        font-weight:bold;
         line-height: 1em;
         color: #c10909 !important;
         padding-right: 10px;
@@ -71,7 +72,7 @@ li#langLast a {
 #search {
     margin: 0;
     float: right;
-    padding: 8px 10px 0 0;
+    padding: 0px 0px 15px 0;
     width: 220px;
 }
 
@@ -373,7 +374,7 @@ input.searchInputFR, input.searchInputNL, input.searchInputEN {
 .cta p {
     margin: 0px;
     padding: 0px;
-    font-size: 2em;
+    font-size: 2.2em;
     line-height: 1.5em;
 }
 

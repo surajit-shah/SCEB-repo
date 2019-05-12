@@ -141,6 +141,7 @@
     <Compile Include="Controllers\SCDialBoxesController.cs" />
     <Compile Include="Controllers\SCSearchController.cs" />
     <Compile Include="Models\FooterNavigation.cs" />
+    <Compile Include="Models\ResultData.cs" />
     <Compile Include="Models\SCDialBoxVM.cs" />
     <Compile Include="Models\SCArticleVM.cs" />
     <Compile Include="Models\ResultItems.cs" />
@@ -176,6 +177,7 @@
     <Content Include="Css\font-awesome.min.css" />
     <Content Include="Css\index-old.css" />
     <Content Include="Css\index.css" />
+    <Content Include="Css\menu.css" />
     <Content Include="Css\profile.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\arrow.png" />

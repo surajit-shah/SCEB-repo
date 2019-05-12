@@ -107,7 +107,7 @@ namespace EBPOC.Web.Controllers
         }
         private void SaveSearchResults(SearchResults searchResult)
         {
-
+            //SearchResults resultmodel= new SearchResults();
             using (new Sitecore.SecurityModel.SecurityDisabler())
             {
                 // Get the master database
@@ -136,7 +136,7 @@ namespace EBPOC.Web.Controllers
                     searchItem = searchItemFolder.Add("SearchItemData", searchItemTemplate);
                     //MultilistField mlf = new MultilistField(newItem.Fields["ResultItems"]);
                     //string resultItems = string.Empty;
-                    if (searchResult.Results != null)
+                    if (searchResult.ResultItems != null)
                     {
                         searchItem.Editing.BeginEdit();
                         searchItemFolder.DeleteChildren();
@@ -145,17 +145,18 @@ namespace EBPOC.Web.Controllers
                         searchItem.Fields["SearchItemName"].Value = searchResult.SearchItemName;
                         searchItem.Fields["SearchitemDescription"].Value = searchResult.SearchitemDescription;
                         searchItemFolder.Editing.EndEdit();
-                        foreach (var result in searchResult.Results)
+                       
+                        foreach (var result in searchResult.ResultItems)
                         {
                             // Add the item to the site tree;
                             resultItem = resultItemFolder.Add("ResultItemData", resultItemtemplate);
                             resultItem.Editing.BeginEdit();
                             resultItem.DeleteChildren();
-                            resultItem.Fields["Description"].Value =searchResult.SearchitemDescription;
+                            resultItem.Fields["Description"].Value =result.Description;
                             resultItem.Fields["Name"].Value = result.Name;
                             resultItem.Fields["Title"].Value = result.Title;
                             resultItem.Fields["Url"].Value = result.Url;
-                            resultItem.Fields["MediaUrl"].Value = searchResult.searchItemUrl;
+                            resultItem.Fields["MediaUrl"].Value = result.MediaUrl;
                             resultItem.Editing.EndEdit();
                         }
                     }
@@ -185,8 +186,8 @@ namespace EBPOC.Web.Controllers
                     // Cancel the edit (not really needed, as Sitecore automatically aborts
                     // the transaction on exceptions, but it wont hurt your code)
                     //searchItemDataFolder.Editing.CancelEdit();
-                    searchItem.Editing.CancelEdit();
-                    resultItem.Editing.CancelEdit();
+                    //searchItem.Editing.CancelEdit();
+                    //resultItem.Editing.CancelEdit();
                 }
             }
         }
