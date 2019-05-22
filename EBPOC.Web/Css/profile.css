@@ -862,7 +862,7 @@ select, input {
     border-right: 1px solid #F2F2F2;
 }*/
 .sidebarwrapper .cta {
-    background-color: #ebe0e0;
+    background-color: #F2F2F2;
     float: left;
     margin: 3px 3px;
     padding: 5px 20px 20px;
@@ -1263,7 +1263,7 @@ a.third:after {
 }
 /* search css started */
 .submit-btn {
-    background-color: #7474a9;
+    background-color: #03479c;
     color: white;
     width: 150px;
     height: 40px;

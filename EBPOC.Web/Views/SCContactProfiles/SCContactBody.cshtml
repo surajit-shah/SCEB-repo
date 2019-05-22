@@ -11,11 +11,9 @@
     Sitecore.Data.Fields.ImageField imgField = ((Sitecore.Data.Fields.ImageField)item.Fields["ArticleBanner"]);
     var image = new MediaItem(imgField.MediaItem);
     string articleBannerUrl = StringUtil.EnsurePrefix('/', MediaManager.GetMediaUrl(image));
-    //string articleBannerUrl = Sitecore.Resources.Media.MediaManager.GetMediaUrl(imgField.MediaItem);
 }
 
 <div id="image" style="background: url(@articleBannerUrl) no-repeat;background-size: 100%; height:200px;">
-    @*<img src="@articleBannerUrl no-repeat" />*@
     @Html.Sitecore().Field("ArticleHeader")
 </div>
 <div class="section">
@@ -27,17 +25,14 @@
     @Html.Sitecore().FormHandler("SCContactProfiles", "SCSubmitContactProfile")
     <div class="form">
         <div class="form_section">
-            <h3>Sélectionnez votre profil</h3>
+            <h3>Select your profile</h3>
             @Html.Sitecore().Controller("SCContactProfiles", "SCContactProfiles")
         </div>
         <div id="dvContactFormSection" class="form_section">
         </div>
         <div class="form_submit">
-            @*<button onclick="if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate(''); __doPostBack('ctl00$WPMMasterPage$g_6ea89758_fe38_4dad_b20a_3c5e5a7ce7cd$ctl00$ctl27','')" class="button button_arrow">
-                    <span class="submit-btn">Envoyer</span>
-                </button>*@
-            <input type="submit" class="submit-btn" value="Envoyer" />
+            <input type="submit" class="submit-btn" value="Submit" />
         </div>
     </div>
 }
-<!--form endss-->
+<!--form ends-->

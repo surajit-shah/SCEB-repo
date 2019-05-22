@@ -261,6 +261,7 @@
     <Content Include="Views\Shared\SCPageBody\SCSuccess.cshtml" />
     <Content Include="Views\SCPromotions\SCPrivateEmployerBody.cshtml" />
     <Content Include="Views\SCNavigations\SCPromotions.cshtml" />
+    <Content Include="Views\SCPromotions\SCStaticBody.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

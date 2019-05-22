@@ -133,16 +133,16 @@
                             <a class="third after" href="@resultItem.Url"><i  style="padding-right :10px" class="fa fa-link icon" aria-hidden="true"></i>@resultItem.Name</a>
                             <div class="search-second">
                                 @*<p class="search-second-1"> Use SHIFT + ENTER to open the menu </p>*@
-                                <p class="search-second-date">@resultItem.Description </p>
+                                <p class="search-second-date">@Html.Raw(resultItem.Description) </p>
                             </div>
                             <div class="url-wrapper">
-                                <span class="url">
-                                    @*@resultItem.Name*@
+                                @*<span class="url">
+                                   
                                     <a title="@resultItem.Name" href="@resultItem.Url">
                                         @resultItem.Name
                                     </a>
-                                </span>
-                                @*<span class="url">@resultItem.Name</span>*@
+                                </span>*@
+                               
                             </div>
 
                         </div>
@@ -172,9 +172,9 @@
             </div>
         }
     </div>
-    <div class="btn-container">
+    @*<div class="btn-container">
         <button class="btn draw-border"> Load More</button>
-    </div>
+    </div>*@
 </div>
          }   @*<div class="col-md-9" id="firstContent">
 

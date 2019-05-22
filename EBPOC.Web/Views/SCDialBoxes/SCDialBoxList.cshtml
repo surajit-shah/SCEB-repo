@@ -2,24 +2,8 @@
 @using Sitecore.Mvc.Presentation
 @model RenderingModel
 @{
-    //var renderings;
-    //if (Page != null)
-    //{
-    //private string itemId = string.Empty;
-    //public string ItemId
-    //{
-    //    get
-    //    {
-    //        var pageContext = Sitecore.Mvc.Presentation.PageContext.CurrentOrNull;
-    //        return new Sitecore.Data.Items.Item.ItemDebuggerTypeProxy(pageContext.Item).Id;
-    //    }
-    //}
-
     var pageContext = Sitecore.Mvc.Presentation.PageContext.CurrentOrNull;
     string ItemId = new Sitecore.Data.Items.Item.ItemDebuggerTypeProxy(pageContext.Item).Id;
-    //var renderings = pageContext.PageDefinition.Renderings;
-    //}
-    //return ItemId;
 }
 @Html.Action("SCDialBox", "SCDialBoxes", new { ItemId = Model.Item })
 @*@Html.Sitecore().ControllerRendering("SCDialBoxes", "SCDialBox", new { ItemId = Model.Item })*@

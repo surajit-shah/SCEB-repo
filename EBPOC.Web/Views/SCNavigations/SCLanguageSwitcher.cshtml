@@ -20,8 +20,14 @@
         //}
         if (language.LanguageName.ToUpper() == "ENGLISH")
         {
+            @*<li class="@langSelected">
+                    <a href="@language.LanguageUrl">@lanValues[1].ToUpper()</a>
+                </li>*@
+        }
+        else if (language.LanguageName.ToUpper() == "FRENCH (FRANCE)")
+        {
             <li class="@langSelected">
-                <a href="@language.LanguageUrl">@lanValues[1].ToUpper()</a>
+                <a href="@language.LanguageUrl">@langSort.ToUpper()</a>
             </li>
         }
         else
